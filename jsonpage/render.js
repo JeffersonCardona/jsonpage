@@ -12,11 +12,16 @@
     sublayouts -> array
 */
 
-function fnc_create_layout(layout){
+function fnc_create_layout(layout, dom){
     var tmp_layout;
     for(i in layout){
-        tmp_layout = $('<'+ layout[i].tag +' id="'+ layout[i].id +'"></'+ layout[i].tag +'>').attr(layout[i].atributtes);
-        $('#main').append(tmp_layout);
+        tmp_layout = $('<'+ layout[i].tag +' id="'+ layout[i].id +'"></'+ layout[i].tag +'>');
+        if(layout[i].attributes != undefined && Object.keys(layout[i].attributes).length > 0){
+            tmp_layout.attr(layout[i].attributes);
+        }
+
+        $('#'+dom).append(tmp_layout);
+
         if(layout[i].sublayouts != undefined && layout[i].sublayouts.length > 0){
             fnc_create_sublayout(layout[i].id, layout[i].sublayouts);
         }
@@ -26,8 +31,14 @@ function fnc_create_layout(layout){
 function fnc_create_sublayout(id, sublayouts){
     var tmp_sublayout;
     for(j in sublayouts){
-        tmp_sublayout = $('<'+ sublayouts[j].tag +' id="'+ sublayouts[j].id +'"></'+ sublayouts[j].tag +'>').attr(sublayouts[j].atributtes);
+        tmp_sublayout = $('<'+ sublayouts[j].tag +' id="'+ sublayouts[j].id +'"></'+ sublayouts[j].tag +'>');
+        
+        if(sublayouts[j].attributes != undefined && Object.keys(sublayouts[j].attributes).length > 0){
+            tmp_sublayout.attr(sublayouts[j].attributes);
+        }
+        
         $('#'+ id).append(tmp_sublayout);
+        
         if(sublayouts[j].sublayouts != undefined && sublayouts[j].sublayouts.length > 0){
             fnc_create_sublayout(sublayouts[j].id, sublayouts[j].sublayouts);
         }

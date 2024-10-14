@@ -1,0 +1,18 @@
+[
+    { "icon" : "person", "name" : "User 1", "hour" : "8:30" },
+    { "icon" : "person", "name" : "User 2", "hour" : "8:50" },
+    { "icon" : "person", "name" : "User 3", "hour" : "9:20" },
+    { "icon" : "person", "name" : "User 4", "hour" : "10:30" },
+    { "icon" : "person", "name" : "User 1", "hour" : "8:30" },
+    { "icon" : "person", "name" : "User 2", "hour" : "8:50" },
+    { "icon" : "person", "name" : "User 3", "hour" : "9:20" },
+    { "icon" : "person", "name" : "User 4", "hour" : "10:30" },
+    { "icon" : "person", "name" : "User 1", "hour" : "8:30" },
+    { "icon" : "person", "name" : "User 2", "hour" : "8:50" },
+    { "icon" : "person", "name" : "User 3", "hour" : "9:20" },
+    { "icon" : "person", "name" : "User 4", "hour" : "10:30" },
+    { "icon" : "person", "name" : "User 1", "hour" : "8:30" },
+    { "icon" : "person", "name" : "User 2", "hour" : "8:50" },
+    { "icon" : "person", "name" : "User 3", "hour" : "9:20" },
+    { "icon" : "person", "name" : "User 4", "hour" : "10:30" }
+]

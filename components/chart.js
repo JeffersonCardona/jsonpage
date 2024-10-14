@@ -5,40 +5,31 @@
 */
 function fnc_component_chart(item){
     var component = components[item];
-    var id_div = component.layout +'_graphic';
+    const namespace = component.layout +'_graphic';
     var title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
     const library = component.library == 'undefined' || component.library.length == 0 ? 'apexchart' : component.library;
-    var carryOn = true;
-
-    var data = connections[component.connection] == undefined ? 'null' : connections[component.connection].data;
-    var configuration = connections[component.configuration] == undefined ? 'null' : connections[component.configuration].data;
+    const carryOn = fnc_carryOn_data('fnc_component_chart', item, component.data);
+    const carryOnCnf = fnc_carryOn_data('fnc_component_chart', item, component.configuration);
 
     fnc_reload_html_layout(
         component.layout, 
         types_components[component.type].default_class, 
-        id_div, 
+        namespace, 
         'div',
         component['attributes']
-        );
+    );
     
-    // Validate connection configuration
-    carryOn = fnc_carryOn_data('fnc_component_chart', item, component.configuration);
-
-    if(carryOn && fnc_carryOn_data('fnc_component_chart', item, component.connection)){
-        if(carryOn == true){
-            if( library == 'apexcharts'){
-                fnc_chart_apexcharts(id_div, component, data, configuration);
-            }else{
-                fnc_chart_charts(id_div, component, data, configuration);
-            }
-        }
-    } else{
+    if(carryOn == true &&  carryOnCnf == true){
+        var fnc_eval = 'fnc_chart_'+library+'("'+ namespace +'","'+ item +'")';
+        fnc_validate_load_library(component.type, library, fnc_eval);
+    }else{
         fnc_render_default_component(item);
     }
 }
 
-function fnc_chart_apexcharts(id_div, component, data, configuration){
-    var obj_jsgrid = $.extend(configuration,{"data": data});
+function fnc_chart_apexcharts(namespace, item){
+    var component = components[item];
+    var obj_jsgrid = $.extend(connections[components.configuration],{"data": connections[components.data].data});
     var options = eval(configuration.configuration);
     var categories =  fnc_get_info_categories(data, options.column_category);
     var series_data =  fnc_get_info_datas(data, options.columns_series);
@@ -55,12 +46,13 @@ function fnc_chart_apexcharts(id_div, component, data, configuration){
         }
     }
     
-    var chart = new ApexCharts(document.querySelector("#"+id_div), options);
+    var chart = new ApexCharts(document.querySelector("#"+namespace), options);
     chart.render();
 }
 
-function fnc_charts(namespace, data, configuration){
-    configuration['data'] = data;
+function fnc_chart_charts(namespace, item){
+    var component = components[item];
+    var configuration = $.extend(connections[components.configuration],{"data": connections[components.data].data});
     var cnx = $('#'+namespace);
     new Chart(cnx, configuration);
 }

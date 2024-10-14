@@ -7,12 +7,32 @@ var libraries_load = [];
 var components = {};
 var connections = {};
 var layout = {};
-const service_balance = 'jsonpage/balance.jsp';
+const service_balance = '/jsonpage/balance.jsp';
 var msj_crypto = '';
 var parameters_start = [];
 var dictionary = {};
 var start_page = false;
+var libraries_loaded = {};
+const type_not_package = ["material", "lists", "cards"];
 const types_components = {
+        "button" : {
+                "function_load" : "fnc_component_button",
+                "default_class" : "default_button",
+                "libraries" : {
+                        "bttncss" : [
+                                {
+                                        "type" : "css",
+                                        "source" : "packages/bttncss/bttn.min.css"
+                                }
+                        ],
+                        "buttons" : [
+                                {
+                                        "type" : "css",
+                                        "source" : "packages/buttons/buttons.min.css"
+                                }
+                        ]
+                }
+        },
         "selector" : {
                 "function_load" : "fnc_component_selector",
                 "default_class" : "default_selector",
@@ -20,21 +40,21 @@ const types_components = {
                         "sumoselect" : [
                                 {
                                         "type" : "script",
-                                        "source" : "sumoselect/sumoselect.js"
+                                        "source" : "packages/sumoselect/sumoselect.js"
                                 },
                                 {
                                         "type" : "css",
-                                        "source" : "sumoselect/sumoselect.css"
+                                        "source" : "packages/sumoselect/sumoselect.css"
                                 }
                         ],
                         "chosen" : [
                                 {
                                 "type" : "script",
-                                "source" : "chosen/chosen.proto.min.js"
+                                "source" : "packages/chosen/chosen.jquery.min.js"
                                 },
                                 {
                                 "type" : "css",
-                                "source" : "chosen/chosen.min.css"
+                                "source" : "packages/chosen/chosen.min.css"
                                 }
                         ]
                 }
@@ -47,10 +67,6 @@ const types_components = {
                                 {
                                         "type" : "script",
                                         "source" : "flatpickr/flatpickr.min.js"
-                                },
-                                {
-                                        "type" : "css",
-                                        "source" : "flatpickr/flatpickr.min.css"
                                 }
                         ]
                 }
@@ -110,13 +126,7 @@ const types_components = {
                         "charts" : [
                                 {
                                 "type" : "script",
-                                "source" : "charts/charts.min.js"
-                                }
-                        ],
-                        "echarts" : [
-                                {
-                                "type" : "script",
-                                "source" : "echarts/echarts.min.js"
+                                "source" : "charts/Charts.min.js"
                                 }
                         ]
                 }
@@ -128,11 +138,11 @@ const types_components = {
                         "sweetalert" : [ 
                                 {
                                         "type" : "script",
-                                        "source" : "sweetalert/sweetalert.min.js"
+                                        "source" : "sweetalert/sweetalert2.min.js"
                                 },
                                 {
                                         "type" : "css",
-                                        "source" : "sweetalert/sweetalert.min.css"
+                                        "source" : "sweetalert/sweetalert2.min.css"
                                 }
                         ]
                 }
@@ -165,12 +175,16 @@ const types_components = {
                         ]
                 }
         },
-    "editor" : {
+        "editor" : {
             "function_load" : "fnc_component_edit",
             "default_class" : "default_generic"
-            },
-    "upload" : {
+        },
+        "upload" : {
             "function_load" : "fnc_component_upload",
             "default_class" : "default_upload"
-            }
+        },
+        "list" : {
+                "function_load" : "fnc_component_lists",
+                "default_class" : "default_list"
+        }
 };

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="packages/jquery/jquery.min.js"></script>
+        <script src="packages/bootstrap/js/bootstrap.min.js"></script>
+        <script src="packages/crypto/aes.js"></script>
+        <script src="jsonpage/variables.js"></script>
+        <script src="jsonpage/core.js"></script>
+        <script src="jsonpage/render.js"></script>
+        <script src="jsonpage/actions.js"></script>
+        <script src="jsonpage/connection.js"></script>
+        <script src="components/selector.js"></script>
+        <script src="components/button.js"></script>
+        <script src="components/lists.js"></script>
+
+        <link rel="stylesheet" href="packages/material-icons/iconfont/material-icons.css">
+        <link rel="stylesheet" href="packages/bootstrap/css/bootstrap.min.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/layouts.css" type="text/css" media="screen">
+
+        <title></title>
+        <script>
+            $(document).ready(function(){
+                var dictionary = {
+                    "title.demo" : "Demo Titulo"
+                }
+                var page ={
+                    "layouts":[
+                        {
+                            "tag" : "div",
+                            "id" : "head",
+                            "title" : "title.demo",
+                            "attributes": {
+                                "class" : "toolbar bg-warning d-flex flex-column flex-md-row footer mt-auto py-3 navbar navbar-expand-lg bd-navbar sticky-top"
+                            },
+                            "sublayouts":[
+                                {
+                                    "tag" : "div",
+                                    "id" : "title",
+                                    "attributes": {
+                                        "class" : "text-center"
+                                    },
+                                    "sublayouts":[]
+                                }
+
+                            ]
+                        },
+                        {
+                            "tag" : "div",
+                            "id" : "filters",
+                            "title" : "",
+                            "attributes": {
+                                "class" : ""
+                            },
+                            "sublayouts":[
+                                {
+                                    "tag" : "div",
+                                    "id" : "filter1",
+                                    "title" : "",
+                                    "attributes": {
+                                        "class" : "col-md-3"
+                                    },
+                                    "sublayouts":[]
+                                },{
+                                    "tag" : "div",
+                                    "id" : "filter2",
+                                    "title" : "",
+                                    "attributes": {
+                                        "class" : "col-md-3"
+                                    },
+                                    "sublayouts":[]
+                                },{
+                                    "tag" : "div",
+                                    "id" : "button",
+                                    "title" : "",
+                                    "attributes": {
+                                        "class" : "col-md-3"
+                                    },
+                                    "sublayouts":[]
+                                },{
+                                    "tag" : "div",
+                                    "id" : "cards",
+                                    "title" : "",
+                                    "attributes": {
+                                    },
+                                    "sublayouts":[]
+                                }
+                            ]
+                        },
+                        {
+                            "tag" : "div",
+                            "id" : "footer",
+                            "title" : "",
+                            "attributes": {
+                                "class" : "toolbar bg-warning d-flex flex-column flex-md-row footer mt-auto py-3 sticky-bottom"        
+                            },                            
+                            "sublayouts":[
+                                {
+                                    "tag" : "div",
+                                    "id" : "button_status",
+                                    "attributes": {
+                                        "class" : "col text-center"
+                                    },
+                                    "sublayouts":[]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "buttons_report",
+                                    "attributes": {
+                                        "class" : "col text-center"
+                                    },
+                                    "sublayouts":[]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "button_product",
+                                    "attributes": {
+                                        "class" : "col text-center"
+                                    },
+                                    "sublayouts":[]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "button_list",
+                                    "attributes": {
+                                        "class" : "col text-center"
+                                    },
+                                    "sublayouts":[]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "button_setting",
+                                    "attributes": {
+                                        "class" : "col text-center"
+                                    },
+                                    "sublayouts":[]
+                                }
+
+
+                            ]
+                        }
+                    ],
+                    "connections" : {
+                        "demo" : {
+                            "execute" : true,
+                            "host" : "http://localhost:8080/jsonpage/demo/data/select.json",
+                            "valid" : true,
+                            "base" : {},
+                            "parameters" : {
+                            },
+                            "data" : []
+                        },
+                        "demo2" : {
+                            "execute" : true,
+                            "host" : "http://localhost:8080/jsonpage/demo/data/select2.json",
+                            "valid" : true,
+                            "base" : {},
+                            "parameters" : {
+                                "paramsumo" : ""
+                            },
+                            "data" : []
+                        },
+                        "cards" : {
+                            "execute" : true,
+                            "host" : "http://localhost:8080/jsonpage/demo/data/cards.json",
+                            "valid" : true,
+                            "base" : {},
+                            "parameters" : {},
+                            "data" : []
+                        },
+                        "button" : {
+                            "execute" : false,
+                            "host" : "",
+                            "valid" : false,
+                            "base" : {},
+                            "parameters" : {
+                                "paramsumo" : "",
+                                "paramchosen" : ""
+                            },
+                            "data" : [
+                            ]
+                        }
+                    },
+                    "components":{
+                        "component1" : {
+                            "layout": "filter1",
+                            "type" : "selector",
+                            "library" : "chosen",
+                            "data" : "demo",
+                            "configuration" : "",
+                            "options" : {},
+                            "parameters" : ["paramsumo"],
+                            "active" : ["demo2"],
+                            "title" : "Seleccion Sumoselect"
+                        },
+                        "component2" : {
+                            "layout": "filter2",
+                            "type" : "selector",
+                            "library" : "chosen",
+                            "data" : "demo2",
+                            "configuration" : "",
+                            "options" : {},
+                            "parameters" : ["paramchosen"],
+                            "active" : ["button"],
+                            "title" : "Seleccion Chosen"
+                        },
+                        "component3" : {
+                            "layout": "button",
+                            "type" : "button",
+                            "library" : "bttncss",
+                            "data" : "button",
+                            "configuration" : "",
+                            "options" : {
+                                "value" : "active"
+                            },
+                            "attributes" : {
+                                "class" : "bttn-bordered bttn-sm bttn-primary"
+                            },
+                            "parameters" : ["button"],
+                            "active" : [],
+                            "title" : "generate"
+                        },
+                        "component4" : {
+                            "layout": "button_status",
+                            "type" : "button",
+                            "library" : "material",
+                            "options" : {
+                                "value" : "status",
+                                "title" : "estado",
+                                "icon" : "pending_actions"
+                            },
+                            "title" : ""
+                        },
+                        "component5" : {
+                            "layout": "buttons_report",
+                            "type" : "button",
+                            "library" : "material",
+                            "options" : {
+                                "value" : "report",
+                                "title" : "informe",
+                                "icon" : "leaderboard"
+                            },
+                            "title" : ""
+                        },
+                        "component6" : {
+                            "layout": "button_product",
+                            "type" : "button",
+                            "library" : "material",
+                            "options" : {
+                                "value" : "product",
+                                "title" : "Producto",
+                                "icon" : "verified"
+                            },
+                            "title" : ""
+                        },
+                        "component7" : {
+                            "layout": "button_list",
+                            "type" : "button",
+                            "library" : "material",
+                            "options" : {
+                                "value" : "list",
+                                "title" : "Lista",
+                                "icon" : "diversity_3"
+                            },
+                            "title" : ""
+                        },
+                        "component8" : {
+                            "layout": "button_setting",
+                            "type" : "button",
+                            "library" : "material",
+                            "options" : {
+                                "value" : "setting",
+                                "title" : "Configuracion",
+                                "icon" : "manage_accounts"
+                            },
+                            "title" : ""
+                        },
+                        "component2" : {
+                            "layout": "cards",
+                            "type" : "list",
+                            "library" : "cards",
+                            "data" : "cards",
+                            "configuration" : "",
+                            "options" : {
+                                "template" : "<div class='card-header d-flex flex-column flex-md-row'><div>$name </div><div style='position: absolute; right: 10px;'>$hour</div></div><i class='icon material-icons'>$icon</i><p class='card-text'></p>"
+                            },
+                            "parameters" : [],
+                            "active" : [],
+                            "title" : ""
+                        }
+                    }
+                };
+                load_start_jsonpage(page,'main');
+            });
+        </script>
+    </head>
+    <body id="main">
+    </body>
+</html>

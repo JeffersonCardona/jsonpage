@@ -1,0 +1,7 @@
+[
+    { "select" : "false", "title" : "Option 1", "value" : "vlr1" },
+    { "select" : "false", "title" : "Option 2", "value" : "vlr2" },
+    { "select" : "false", "title" : "Option 3", "value" : "vlr3" },
+    { "select" : "false", "title" : "Option 4", "value" : "vlr4" },
+    { "select" : "false", "title" : "Option 5", "value" : "vlr5" }
+]

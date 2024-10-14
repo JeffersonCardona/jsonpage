@@ -1,67 +1,69 @@
 /*
     connection.js : Proceso encargado de interconectar con los servicios externos
     connection
-        ajax -> boolean
+        execute -> boolean
         host -> varchar
         valid -> boolean
-        source -> object
+        base -> object
         parameters -> object
+        data -> object
 */
 
-function fnc_load_connections(){
-    var connection = {};
+function fnc_load_connections(parameters = {}){
+    for( cnx in connections ){
+        connections[cnx]['components'] = [];
+        connections[cnx].parameters = $.extend(connections[cnx].parameters, parameters);
+        fnc_validate_connection(cnx);
 
-    for( i in connections){
-        fnc_load_parameters_connections(i, parameters_start);
-    }
-
-    for( i in connections ){
-        connection = connections[i];
-        if(connection.ajax && connection.valid){
-            fnc_get_data(i);
+        if(connections[cnx].execute && connections[cnx].valid){
+            fnc_get_data(cnx);
         }
     }
 }
 
-function fnc_get_data(item){
-    var connection = connections[item];
-    var parameters =$.extend( connection.source, connection.parameters);
-    var json = JSON.stringify(parameters);
+function fnc_get_data(cnx){
+    let parameters = $.extend( connections[cnx].base, connections[cnx].parameters);
+    let json = '';
+    
+    if(Object.keys(parameters).length){
+        json = fnc_crypto_aes(JSON.stringify(parameters));
+    }
 
     var request = $.ajax({
         async : false,
         method: "POST",
         url: service_balance,
         data: {
-            'json' : fnc_crypto_aes(json)
+            'host' : connections[cnx].host,
+            'json' : json
         }
     });
 
     request.done(function(data){
-        connections[item].data = data;
+        connections[cnx]['data'] = data;
     });
 
     request.fail(function( jqXHR, textStatus ) {
-        connections[item].data = {};
-        fnc_log_fail('fnc_get_data', jqXHR, item);
+        connections[cnx]['data'] = {};
+        fnc_log_fail('fnc_get_data', jqXHR, cnx);
     });
 }
 
-function fnc_validate_data(item){
-    var connection = connections[item];
-    var parameters = JSON.stringify(connection.parameters);
+function fnc_validate_connection(connection){
+    let parameters = connections[connection].parameters;
+    connections[connection]['valid'] = true;
 
-    for(i in parameters){
-        if(parameters[i].length == 0){
-            connections[item].valid = false;
+    for(p in parameters){
+        if(parameters[p] === null || parameters[p].length == 0){
+            connections[connection]['valid'] = false;
             break;
         }
     }
 }
 
 function fnc_crypto_aes(text){
-    var text_crypto = CryptoJS.AES.encrypt(text, msj_crypto);
-    return text_crypto;
+    let encrypted = CryptoJS.AES.encrypt(text, msj_crypto);
+    return encrypted.toString();
 }
 
 function fnc_carryOn_data(fnc, component, connection){
@@ -71,6 +73,10 @@ function fnc_carryOn_data(fnc, component, connection){
         carryOn = false;
         fnc_log_fail(fnc, 'Connection not found data '+ connection + 'for component' + component);
     }else
+    if(connections[connection].valid == true && connections[connection].execute == false){
+        carryOn = true;
+    }
+    else
     if(connections[connection].data.length == 0){
         carryOn = false;
         fnc_log_fail(fnc, 'Data clear ' + connection + 'for component' +  component);

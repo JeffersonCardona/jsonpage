@@ -1,50 +1,63 @@
 /*
     data
-        title
-        value
-        select
+    title
+    value
+    select
 */
 function fnc_component_selector(item){
-    var component = components[item];
-    var id_item = component.layout +'_select';
-    var data = connections[component.connection] == undefined ? 'null' : connections[component.connection].data;
-    var title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
-    const options = component.options != undefined ? component.options : {};
-    const library = component.library == undefined ? 'sumoselect' : component.library;
+    let component = components[item];
+    let data = connections[component.data].data;
+    const namespace = component.layout +'_select';
+    const title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
+    const library = component.library == undefined || component.library.length == 0 ? 'sumoselect' : component.library;
+    let carryOn = fnc_carryOn_data('fnc_component_selector', item, component.data);
 
     fnc_reload_html_layout(
         component.layout, 
         types_components[component.type].default_class, 
-        id_div, 
+        namespace, 
         'select',
         component['attributes']
-        );
+    );
+
+    if(carryOn == true && data.length > 0){
+        let fnc_eval = 'fnc_select_'+library+'("'+ namespace +'","'+ item +'","'+ component.data +'")';
+        fnc_validate_load_library(component.type, library, fnc_eval);
+    }else{
+        $('#'+namespace).prop( 'disabled', true );
+        $('#'+namespace).append('<option value="" select="true">'+ title +'</option>');
+    }
+
+    fnc_execute_action(item, $('#'+namespace).val());
+}
+
+function fnc_select_chosen(namespace, component, connection){
+    let data = connections[connection].data;
+    const options = components[component].options != undefined ? components[component].options : {};
+
+    for(i in data){
+        $('#'+namespace).append('<option value="'+ data[i].value +'" select="'+ data[i].select +'">'+ data[i].title +'</option>');
+    }
     
-    if(data == 'null' || data.length == 0){
-        if(data == 'null'){
-            fnc_log_fail('fnc_component_selector', 'Connection not found ' + component.connection, item);
-        }
-        $('#'+ id_item).prop( 'disabled', true );
-        $('#'+component.layout).append('<option>'+ title +'</option>');
-    }else{
-        for(i in data){
-            $('#'+id_item).append('<option value="'+ data.value +'" select="'+ data.select +'">'+ data.title +'</option>');
-        }
+    $('#'+namespace).chosen(options).change(function(){
+        fnc_execute_action(component, $('#'+namespace).val());
+    });
+
+}
+
+function fnc_select_sumoselect(namespace, component, connection){
+    let data = connections[connection].data;
+    const options = components[component].options != undefined ? components[component].options : {};
+    
+    for(i in data){
+        $('#'+namespace).append('<option value="'+ data[i].value +'" select="'+ data[i].select +'">'+ data[i].title +'</option>');
     }
 
-    fnc_validate_load_library(component.type, library);
+    $('#'+namespace).SumoSelect(options);
 
-    if( library == 'chosen' ){
-        fnc_select_chosen(id, options);
-    }else{
-        fnc_select_sumoselect(id, options);
-    }
+    $('#'+namespace).change(function() {
+        fnc_execute_action(component, $('#'+namespace).val());
+    });
+
 }
 
-function fnc_select_chosen(id, options){
-    $('#'+id).chosen(options);
-}
-
-function fnc_select_sumoselect(id, options){
-    $('#'+id).SumoSelect(options);
-}

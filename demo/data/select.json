@@ -1,0 +1,6 @@
+[
+    { "select" : "true", "title" : "Option Default", "value" : "" },
+    { "select" : "false", "title" : "Option 1", "value" : "vlr1" },
+    { "select" : "false", "title" : "Option 2", "value" : "vlr2" },
+    { "select" : "false", "title" : "Option 3", "value" : "vlr3" }
+]
