@@ -13,7 +13,7 @@ var parameters_start = [];
 var dictionary = {};
 var start_page = false;
 var libraries_loaded = {};
-const type_not_package = ["material", "lists", "cards"];
+const type_not_package = ["layout", "lists", "cards"];
 const types_components = {
         "button" : {
                 "function_load" : "fnc_component_button",

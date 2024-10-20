@@ -50,11 +50,13 @@ function fnc_activate_components(item){
 
 function fnc_execute_action(component, value){
     let parameters = {};
-     
-    for(p in components[component].parameters){
-        parameters[components[component].parameters[p]] = value;
+
+    if(components[component]['parameters'] != undefined){
+        for(p in components[component].parameters){
+            parameters[components[component].parameters[p]] = value;
+        }
     }
-    
+        
     if(components[component].data != undefined){
         parameters = $.extend(parameters, connections[components[component].data].parameters);
     }
@@ -76,8 +78,8 @@ function fnc_load_parameters_connections(connection, parameters){
     }
 
     // Load depency connections
-    for(i in connections[connection]['components']){
-        component = components[connections[connection]['components'][i]];
+    for(let i in connections[connection]['components']){
+        let component = components[connections[connection]['components'][i]];
         eval(types_components[component.type].function_load+'("'+ connections[connection]['components'][i] +'")');
     }
 }

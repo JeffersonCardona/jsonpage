@@ -1,0 +1,40 @@
+{
+    "layouts":[
+        {
+            "tag" : "div",
+            "id" : "status_list",
+            "title" : "",
+            "attributes": {
+                "class" : ""
+            },
+            "sublayouts":[
+            ]
+        }
+    ],
+    "connections" : {    
+        "status_list" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/cards.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : ["status_list"]
+        }
+    },
+    "components":{
+        "status_list" : {
+            "layout": "status_list",
+            "type" : "list",
+            "library" : "cards",
+            "data" : "status_list",
+            "configuration" : "",
+            "options" : {
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div class='col-md-1 card-body'><i style='cursor: pointer;' class='icon material-icons' onclick='fnc_action_status_point($index)'>more_vert</i><p class='card-text'></p> </div> </div>"
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        }
+    }
+}

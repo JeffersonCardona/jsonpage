@@ -10,11 +10,12 @@ function fnc_component_button(item){
     const namespace = component.layout +'_button';
     const title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
     const library = component.library == undefined || component.library.length == 0 ? 'buttons' : component.library;
+    const display = component.display == undefined || component.display.length == 0 ? 'buttons' : component.display;
     let carryOn = fnc_carryOn_data('fnc_component_button', item, component.data);
     let tag = 'button';
     let default_class = types_components[component.type].default_class;
 
-    if(library == 'material'){
+    if(display == 'material'){
         tag = 'div';
         default_class = '';
     }
@@ -26,13 +27,14 @@ function fnc_component_button(item){
         tag,
         component['attributes']
     );
-    
+
+    if(display == 'material'){
+        let btn_i = '<i class="icon material-icons if-md py-2 d-none d-md-inline-block" title="'+ title +'" style="cursor: pointer;" >'+ component.options.icon +'</i>';
+        $('#'+namespace).append(btn_i); 
+    }else  
     if( title.length > 0 ){
         $('#'+namespace).html(title);
     }  
-
-    let fnc_eval = 'fnc_button_'+library+'("'+ namespace +'","'+ item +'","'+ component.data +'", '+carryOn+')';
-    fnc_validate_load_library(component.type, library, fnc_eval);
 
     if(carryOn == true){
         $('#'+namespace).prop( 'disabled', false );
@@ -40,27 +42,33 @@ function fnc_component_button(item){
         $('#'+namespace).prop( 'disabled', true );
     }    
 
-    fnc_execute_action(item, '');
+    $( '#'+namespace ).on( "click", function() {
+        let fnc_eval = 'fnc_action_'+library+'("'+ namespace +'","'+ item +'","'+ component.data +'", '+carryOn+')';
+        fnc_validate_load_library(component.type, library, fnc_eval);
+    } );
 }
 
-function fnc_button_bttncss(namespace, component, data, carryOn){
-    if(carryOn == false){
-        $('#'+namespace).addClass('bttn-no-outline');
-    }
-}
-
-function fnc_button_buttons(namespace, component, data, carryOn){
-    
-}
-
-function fnc_button_material(namespace, item, data, carryOn){
+function fnc_action_default(namespace, item, data, carryOn){
     let component = components[item];
-    let title = '';
+    let value = component.options.value == undefined ? 'valid' : component.options.value;
 
-    if(component.options.title != undefined){
-        title = dictionary[component.options.title] == undefined ? component.options.title : dictionary[component.options.title];
+    fnc_execute_action(item, value);
+}
+
+function fnc_action_layout(namespace, item, data, carryOn){
+    let component = components[item];
+    let dom = component.options.dom == undefined ? 'body' : component.options.dom;
+    let value = component.options.value == undefined ? 'valid' : component.options.value;
+
+    $('#'+dom).html('');
+
+    if(connections, connections[component.data]['data'].length == 0){
+        fnc_get_data(component.data);
+        connections = Object.assign({}, connections, connections[component.data]['data'].connections);
+        components = Object.assign({}, components, connections[component.data]['data'].components);
     }
 
-    let btn_i = '<i class="icon material-icons if-md py-2 d-none d-md-inline-block" title="'+ title +'" style="cursor: pointer;" >'+ component.options.icon +'</i>';
-    $('#'+namespace).append(btn_i);
+    fnc_create_layout(connections[component.data]['data'].layouts, dom);
+    components[item].active = Object.keys(connections[component.data]['data'].connections);
+    fnc_execute_action(item, value);
 }

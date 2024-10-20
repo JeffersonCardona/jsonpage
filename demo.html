@@ -46,44 +46,12 @@
                         },
                         {
                             "tag" : "div",
-                            "id" : "filters",
+                            "id" : "body",
                             "title" : "",
                             "attributes": {
                                 "class" : ""
                             },
-                            "sublayouts":[
-                                {
-                                    "tag" : "div",
-                                    "id" : "filter1",
-                                    "title" : "",
-                                    "attributes": {
-                                        "class" : "col-md-3"
-                                    },
-                                    "sublayouts":[]
-                                },{
-                                    "tag" : "div",
-                                    "id" : "filter2",
-                                    "title" : "",
-                                    "attributes": {
-                                        "class" : "col-md-3"
-                                    },
-                                    "sublayouts":[]
-                                },{
-                                    "tag" : "div",
-                                    "id" : "button",
-                                    "title" : "",
-                                    "attributes": {
-                                        "class" : "col-md-3"
-                                    },
-                                    "sublayouts":[]
-                                },{
-                                    "tag" : "div",
-                                    "id" : "cards",
-                                    "title" : "",
-                                    "attributes": {
-                                    },
-                                    "sublayouts":[]
-                                }
+                            "sublayouts":[                                
                             ]
                         },
                         {
@@ -91,7 +59,8 @@
                             "id" : "footer",
                             "title" : "",
                             "attributes": {
-                                "class" : "toolbar bg-warning d-flex flex-column flex-md-row footer mt-auto py-3 sticky-bottom"        
+                                "class" : "toolbar bg-warning d-flex flex-column flex-md-row footer mt-auto py-3 sticky-bottom",
+                                "style" : "position: fixed; bottom: 0; width: 100%;"
                             },                            
                             "sublayouts":[
                                 {
@@ -134,24 +103,13 @@
                                     },
                                     "sublayouts":[]
                                 }
-
-
                             ]
                         }
                     ],
                     "connections" : {
-                        "demo" : {
-                            "execute" : true,
-                            "host" : "http://localhost:8080/jsonpage/demo/data/select.json",
-                            "valid" : true,
-                            "base" : {},
-                            "parameters" : {
-                            },
-                            "data" : []
-                        },
-                        "demo2" : {
-                            "execute" : true,
-                            "host" : "http://localhost:8080/jsonpage/demo/data/select2.json",
+                        "filters" : {
+                            "execute" : false,
+                            "host" : "http://localhost:8080/jsonpage/demo/filters.json",
                             "valid" : true,
                             "base" : {},
                             "parameters" : {
@@ -159,132 +117,94 @@
                             },
                             "data" : []
                         },
-                        "cards" : {
-                            "execute" : true,
-                            "host" : "http://localhost:8080/jsonpage/demo/data/cards.json",
+                        "status" : {
+                            "execute" : false,
+                            "host" : "http://localhost:8080/jsonpage/pages/status.json",
                             "valid" : true,
                             "base" : {},
-                            "parameters" : {},
+                            "parameters" : {
+                            },
                             "data" : []
                         },
-                        "button" : {
+                        "report" : {
                             "execute" : false,
-                            "host" : "",
-                            "valid" : false,
+                            "host" : "http://localhost:8080/jsonpage/pages/filters.json",
+                            "valid" : true,
                             "base" : {},
                             "parameters" : {
-                                "paramsumo" : "",
-                                "paramchosen" : ""
                             },
-                            "data" : [
-                            ]
+                            "data" : []
                         }
                     },
-                    "components":{
-                        "component1" : {
-                            "layout": "filter1",
-                            "type" : "selector",
-                            "library" : "chosen",
-                            "data" : "demo",
-                            "configuration" : "",
-                            "options" : {},
-                            "parameters" : ["paramsumo"],
-                            "active" : ["demo2"],
-                            "title" : "Seleccion Sumoselect"
-                        },
-                        "component2" : {
-                            "layout": "filter2",
-                            "type" : "selector",
-                            "library" : "chosen",
-                            "data" : "demo2",
-                            "configuration" : "",
-                            "options" : {},
-                            "parameters" : ["paramchosen"],
-                            "active" : ["button"],
-                            "title" : "Seleccion Chosen"
-                        },
-                        "component3" : {
-                            "layout": "button",
-                            "type" : "button",
-                            "library" : "bttncss",
-                            "data" : "button",
-                            "configuration" : "",
-                            "options" : {
-                                "value" : "active"
-                            },
-                            "attributes" : {
-                                "class" : "bttn-bordered bttn-sm bttn-primary"
-                            },
-                            "parameters" : ["button"],
-                            "active" : [],
-                            "title" : "generate"
-                        },
-                        "component4" : {
+                    "components":{                        
+                        "status" : {
                             "layout": "button_status",
                             "type" : "button",
-                            "library" : "material",
+                            "display" : "material",
+                            "library" : "layout",
+                            "data" : "status",
                             "options" : {
                                 "value" : "status",
                                 "title" : "estado",
-                                "icon" : "pending_actions"
+                                "icon" : "pending_actions",
+                                "dom" : "body"
                             },
                             "title" : ""
                         },
-                        "component5" : {
+                        "report" : {
                             "layout": "buttons_report",
                             "type" : "button",
-                            "library" : "material",
+                            "display" : "material",
+                            "library" : "layout",
+                            "data" : "report",
                             "options" : {
                                 "value" : "report",
                                 "title" : "informe",
-                                "icon" : "leaderboard"
+                                "icon" : "leaderboard",
+                                "dom" : "body"
                             },
                             "title" : ""
                         },
-                        "component6" : {
+                        "product" : {
                             "layout": "button_product",
                             "type" : "button",
-                            "library" : "material",
+                            "display" : "material",
+                            "library" : "layout",
+                            "data" : "status",
                             "options" : {
                                 "value" : "product",
                                 "title" : "Producto",
-                                "icon" : "verified"
+                                "icon" : "verified",
+                                "dom" : "body"
                             },
                             "title" : ""
                         },
-                        "component7" : {
+                        "list" : {
                             "layout": "button_list",
                             "type" : "button",
-                            "library" : "material",
+                            "display" : "material",
+                            "library" : "layout",
+                            "data" : "status",
                             "options" : {
                                 "value" : "list",
                                 "title" : "Lista",
-                                "icon" : "diversity_3"
+                                "icon" : "diversity_3",
+                                "dom" : "body"
                             },
                             "title" : ""
                         },
-                        "component8" : {
+                        "setting" : {
                             "layout": "button_setting",
                             "type" : "button",
-                            "library" : "material",
+                            "display" : "material",
+                            "library" : "layout",
+                            "data" : "status",
                             "options" : {
                                 "value" : "setting",
                                 "title" : "Configuracion",
-                                "icon" : "manage_accounts"
+                                "icon" : "manage_accounts",
+                                "dom" : "body"
                             },
-                            "title" : ""
-                        },
-                        "component2" : {
-                            "layout": "cards",
-                            "type" : "list",
-                            "library" : "cards",
-                            "data" : "cards",
-                            "configuration" : "",
-                            "options" : {
-                                "template" : "<div class='card-header d-flex flex-column flex-md-row'><div>$name </div><div style='position: absolute; right: 10px;'>$hour</div></div><i class='icon material-icons'>$icon</i><p class='card-text'></p>"
-                            },
-                            "parameters" : [],
-                            "active" : [],
                             "title" : ""
                         }
                     }

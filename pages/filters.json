@@ -1,0 +1,105 @@
+{
+    "layouts":[
+        {
+            "tag" : "div",
+            "id" : "filter1",
+            "title" : "",
+            "attributes": {
+                "class" : "col-md-3"
+            },
+            "sublayouts":[]
+        },{
+            "tag" : "div",
+            "id" : "filter2",
+            "title" : "",
+            "attributes": {
+                "class" : "col-md-3"
+            },
+            "sublayouts":[]
+        },{
+            "tag" : "div",
+            "id" : "button",
+            "title" : "",
+            "attributes": {
+                "class" : "col-md-3"
+            },
+            "sublayouts":[]
+        }
+    ],
+    "connections" : {        
+        "filter1" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/select.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {
+            },
+            "data" : [],
+            "components" : ["filter1"]
+        },
+        "filter2" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/select2.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {
+                "paramsumo" : ""
+            },
+            "data" : [],
+            "components" : ["filter2"]
+        },
+        "button" : {
+            "execute" : false,
+            "host" : "",
+            "valid" : false,
+            "base" : {},
+            "parameters" : {
+                "paramsumo" : "",
+                "paramchosen" : ""
+            },
+            "data" : [
+            ],
+            "components" : ["button"]
+        }
+    },
+    "components":{
+        "filter1" : {
+            "layout": "filter1",
+            "type" : "selector",
+            "library" : "chosen",
+            "data" : "filter1",
+            "configuration" : "",
+            "options" : {},
+            "parameters" : ["paramsumo"],
+            "active" : ["filter2"],
+            "title" : "Seleccion Sumoselect"
+        },
+        "filter2" : {
+            "layout": "filter2",
+            "type" : "selector",
+            "library" : "chosen",
+            "data" : "filter2",
+            "configuration" : "",
+            "options" : {},
+            "parameters" : ["paramchosen"],
+            "active" : ["button"],
+            "title" : "Seleccion Chosen"
+        },
+        "button" : {
+            "layout": "button",
+            "type" : "button",
+            "library" : "bttncss",
+            "data" : "button",
+            "configuration" : "",
+            "options" : {
+                "value" : "active"
+            },
+            "attributes" : {
+                "class" : "bttn-bordered bttn-sm bttn-primary"
+            },
+            "parameters" : ["button"],
+            "active" : [],
+            "title" : "generate"
+        }
+    }
+}

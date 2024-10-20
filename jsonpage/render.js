@@ -13,9 +13,10 @@
 */
 
 function fnc_create_layout(layout, dom){
-    var tmp_layout;
-    for(i in layout){
+    let tmp_layout;
+    for(let i in layout){
         tmp_layout = $('<'+ layout[i].tag +' id="'+ layout[i].id +'"></'+ layout[i].tag +'>');
+        
         if(layout[i].attributes != undefined && Object.keys(layout[i].attributes).length > 0){
             tmp_layout.attr(layout[i].attributes);
         }
@@ -29,8 +30,8 @@ function fnc_create_layout(layout, dom){
 }
 
 function fnc_create_sublayout(id, sublayouts){
-    var tmp_sublayout;
-    for(j in sublayouts){
+    let tmp_sublayout;
+    for(let j in sublayouts){
         tmp_sublayout = $('<'+ sublayouts[j].tag +' id="'+ sublayouts[j].id +'"></'+ sublayouts[j].tag +'>');
         
         if(sublayouts[j].attributes != undefined && Object.keys(sublayouts[j].attributes).length > 0){
@@ -46,8 +47,8 @@ function fnc_create_sublayout(id, sublayouts){
 }
 
 function fnc_render_default_component(item){
-    var component = components[item].component;
-    var type_component = types_components[component.component];
+    let component = components[item].component;
+    let type_component = types_components[component.component];
 
     $('#'+component.layout).html('');
     $('#'+component.layout).addClass(type_component.default_class);
