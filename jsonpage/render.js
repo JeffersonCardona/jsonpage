@@ -23,6 +23,10 @@ function fnc_create_layout(layout, dom){
 
         $('#'+dom).append(tmp_layout);
 
+        if(layout[i]['html'] != undefined && layout[i].html.length > 0){
+            $('#'+dom).append(layout[i].html);
+        }
+
         if(layout[i].sublayouts != undefined && layout[i].sublayouts.length > 0){
             fnc_create_sublayout(layout[i].id, layout[i].sublayouts);
         }
@@ -39,6 +43,10 @@ function fnc_create_sublayout(id, sublayouts){
         }
         
         $('#'+ id).append(tmp_sublayout);
+
+        if(sublayouts[j]['html'] != undefined && sublayouts[j].html.length > 0){
+            $('#'+ id).append(sublayouts[j].html);
+        }
         
         if(sublayouts[j].sublayouts != undefined && sublayouts[j].sublayouts.length > 0){
             fnc_create_sublayout(sublayouts[j].id, sublayouts[j].sublayouts);

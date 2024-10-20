@@ -1,0 +1,101 @@
+{
+    "layouts":[
+        {
+            "tag" : "div",
+            "id" : "status_items_order",
+            "title" : "",
+            "attributes": {
+                "class" : "card mb-3"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "status_items_body",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "card-body"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "h6",
+                            "id" : "status_items_body_title",
+                            "html" : "Total venta",
+                            "attributes": {
+                                "class" : "card-subtitle mb-2 text-body-secondary"
+                            },
+                            "sublayouts":[
+                            ]
+                        },
+                        {
+                            "tag" : "h4",
+                            "id" : "status_items_body",
+                            "html" : "$ 0",
+                            "attributes": {
+                                "class" : "card-title"
+                            },
+                            "sublayouts":[
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag" : "h6",
+                    "id" : "status_items_body_title",
+                    "title" : "Total venta",
+                    "attributes": {
+                        "class" : "card-subtitle mb-2 text-body-secondary"
+                    },
+                    "sublayouts":[
+                    ]
+                }
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "status_items_filters",
+            "title" : "",
+            "attributes": {
+                "class" : ""
+            },
+            "sublayouts":[
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "status_items_products",
+            "title" : "",
+            "attributes": {
+                "class" : "card"
+            },
+            "sublayouts":[
+
+            ]
+        }
+    ],
+    "connections" : {    
+        "status_items_products" : {
+            "execute" : false,
+            "host" : "",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : ["status_items_lists"]
+        }
+    },
+    "components":{
+        "status_items_products" : {
+            "layout": "status_items_products",
+            "type" : "list",
+            "library" : "cards",
+            "data" : "status_list",
+            "configuration" : "",
+            "options" : {
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' href='#scrollspyHeading3'>Pedido</a></li><li><a class='dropdown-item' href='#scrollspyHeading4'>Acionables</a></li><li><a class='dropdown-item' href='#scrollspyHeading5'>Actualizar</a></li><li><a class='dropdown-item' href='#scrollspyHeading5'>Cancelar</a></li></ul></div></div>"
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        }
+    }
+}

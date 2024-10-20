@@ -28,8 +28,7 @@ function fnc_get_data(cnx){
     if(Object.keys(parameters).length){
         json = fnc_crypto_aes(JSON.stringify(parameters));
     }
-    console.log(service_balance);
-    console.log(connections[cnx].host);
+    
     let request = $.ajax({
         async : false,
         method: "POST",

@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="packages/jquery/jquery.min.js"></script>
-        <script src="packages/bootstrap/js/bootstrap.min.js"></script>
+        <script src="packages/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="packages/crypto/aes.js"></script>
         <script src="jsonpage/variables.js"></script>
         <script src="jsonpage/core.js"></script>
@@ -207,6 +207,15 @@
                             },
                             "title" : ""
                         }
+                    },
+                    "libraries" : [
+                        {
+                            "type" : "script",
+                            "source" : "js/status_page.js"
+                        }
+                    ],
+                    "databases" : {
+                        
                     }
                 };
                 load_start_jsonpage(page,'main');

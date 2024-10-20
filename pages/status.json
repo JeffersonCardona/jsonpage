@@ -20,6 +20,33 @@
             "parameters" : {},
             "data" : [],
             "components" : ["status_list"]
+        },
+        "status_items" : {
+            "execute" : false,
+            "host" : "http://localhost:8080/jsonpage/pages/status_items.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
+        },
+        "status_action" : {
+            "execute" : false,
+            "host" : "http://localhost:8080/jsonpage/pages/status_action.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
+        },
+        "status_update" : {
+            "execute" : false,
+            "host" : "http://localhost:8080/jsonpage/pages/status_update.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
         }
     },
     "components":{
@@ -30,7 +57,7 @@
             "data" : "status_list",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div class='col-md-1 card-body'><i style='cursor: pointer;' class='icon material-icons' onclick='fnc_action_status_point($index)'>more_vert</i><p class='card-text'></p> </div> </div>"
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' onclick='fnc_action_items_status(3, $index)''>Cancelar</a></li></ul></div></div>"
             },
             "parameters" : [],
             "active" : [],

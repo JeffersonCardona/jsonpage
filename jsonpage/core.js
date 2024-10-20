@@ -14,6 +14,13 @@ function load_start_jsonpage(page, dom){
     // Load componentes
     components = page.components;
     fnc_create_components();
+
+    // Load files
+    if(page['libraries'] != undefined && page.libraries.length > 0){
+      for(let i in page.libraries){
+        let item = fnc_load_library(page.libraries[i]);
+      }
+    }
 }
 
 function fnc_validate_load_library(type, library, fnc_eval){
@@ -46,9 +53,8 @@ function fnc_validate_load_library(type, library, fnc_eval){
   }
 }
 
-function fnc_load_library(library){
-  
-  var item;
+function fnc_load_library(library){  
+  let item;
 
   if(library.type == 'script'){
     item = document.createElement('script');
