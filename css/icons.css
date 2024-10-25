@@ -1,0 +1,69 @@
+.item_up_red {
+    background-image: url(../images/arrow_circle_up_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #9e1818;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_down_green {
+    background-image: url(../images/enable_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #42d824;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_start {
+    background-image: url(../images/grade_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #189e2a;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_equals {
+    background-image: url(../images/swap_horizontal_circle_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #788cff;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new_release {
+    background-image: url(../images/new_releases_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #f8e913;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

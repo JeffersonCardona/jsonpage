@@ -45,7 +45,7 @@
         },
         {
             "tag" : "div",
-            "id" : "status_items_filters",
+            "id" : "lists_items_filters",
             "title" : "",
             "attributes": {
                 "class" : ""
@@ -55,48 +55,35 @@
         },
         {
             "tag" : "div",
-            "id" : "status_items_products",
+            "id" : "lists_items",
             "title" : "",
             "attributes": {
-            },
-            "sublayouts":[
-
-            ]
-        },
-        {
-            "tag" : "div",
-            "id" : "status_items_push",
-            "title" : "",
-            "html" : "<i class='icon material-icons'>add_circle</i>",
-            "attributes": {
-                "class": "boton-flotante bg-warning",
-                "style": "cursor: pointer;"
             },
             "sublayouts":[
 
             ]
         }
     ],
-    "connections" : {    
-        "status_items_products" : {
-            "execute" : false,
-            "host" : "",
+    "connections" : {  
+        "lists_items" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/list_items.json",
             "valid" : true,
             "base" : {},
             "parameters" : {},
             "data" : [],
-            "components" : ["status_items_products"]
+            "components" : ["lists_items"]
         }
     },
     "components":{
-        "status_items_products" : {
-            "layout": "status_items_products",
+        "lists_items" : {
+            "layout": "lists_items",
             "type" : "list",
             "library" : "cards",
-            "data" : "status_list",
+            "data" : "lists_items",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' href='#scrollspyHeading3'>Pedido</a></li><li><a class='dropdown-item' href='#scrollspyHeading4'>Acionables</a></li><li><a class='dropdown-item' href='#scrollspyHeading5'>Actualizar</a></li><li><a class='dropdown-item' href='#scrollspyHeading5'>Cancelar</a></li></ul></div></div>"
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <div class='icon $class'></div>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Valor : $value</small></p>  </div></div>"
             },
             "parameters" : [],
             "active" : [],
