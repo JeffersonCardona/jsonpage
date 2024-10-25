@@ -67,6 +67,8 @@ function fnc_execute_action(component, value){
 }
 
 function fnc_load_parameters_connections(connection, parameters){
+    console.log(connection);
+    console.log(parameters);
     connections[connection].parameters = $.extend(connections[connection].parameters, parameters);
 
     fnc_validate_connection(connection);
@@ -80,6 +82,7 @@ function fnc_load_parameters_connections(connection, parameters){
     // Load depency connections
     for(let i in connections[connection]['components']){
         let component = components[connections[connection]['components'][i]];
+        console.log(component);
         eval(types_components[component.type].function_load+'("'+ connections[connection]['components'][i] +'")');
     }
 }

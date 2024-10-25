@@ -2,51 +2,43 @@
     "layouts":[
         {
             "tag" : "div",
-            "id" : "status_items_order",
+            "id" : "list_search",
             "title" : "",
             "attributes": {
-                "class" : "card mb-3",
-                "style" : "margin:5px;"
+                "class" : "row",
+                "style" : "margin:5px; padding:10px;"
             },
             "sublayouts":[
                 {
+                    "tag" : "label",
+                    "id" : "list_search_label",
+                    "html" : "Buscar",
+                    "attributes": {
+                        "class" : "col-sm-2 col-form-label col-form-label-lg"
+                    },
+                    "sublayouts":[
+                    ]
+                },
+                {
                     "tag" : "div",
-                    "id" : "status_items_body",
+                    "id" : "list_search_div",
                     "title" : "",
                     "attributes": {
-                        "class" : "card-body"
+                        "class" : "col-sm-10"
                     },
                     "sublayouts":[
                         {
-                            "tag" : "h6",
-                            "id" : "status_items_body_title",
-                            "html" : "Total venta",
+                            "tag" : "input",
+                            "id" : "list_search_div",
+                            "title" : "",
                             "attributes": {
-                                "class" : "card-subtitle mb-2 text-body-secondary"
-                            },
-                            "sublayouts":[
-                            ]
-                        },
-                        {
-                            "tag" : "h4",
-                            "id" : "status_items_body",
-                            "html" : "$ 0",
-                            "attributes": {
-                                "class" : "card-title"
+                                "class" : "form-control form-control-lg",
+                                "type":"email",
+                                "placeholder":"Codigo o Nombre"
                             },
                             "sublayouts":[
                             ]
                         }
-                    ]
-                },
-                {
-                    "tag" : "h6",
-                    "id" : "status_items_body_title",
-                    "title" : "Total venta",
-                    "attributes": {
-                        "class" : "card-subtitle mb-2 text-body-secondary"
-                    },
-                    "sublayouts":[
                     ]
                 }
             ]

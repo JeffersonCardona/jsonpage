@@ -36,8 +36,10 @@
                                 {
                                     "tag" : "div",
                                     "id" : "title",
+                                    "html" : "titulo",
                                     "attributes": {
-                                        "class" : "text-center"
+                                        "class" : "fs-3",
+                                        "style" : "text-align: center; width: -webkit-fill-available;"
                                     },
                                     "sublayouts":[]
                                 }
@@ -134,6 +136,15 @@
                             "parameters" : {
                             },
                             "data" : []
+                        },
+                        "list" : {
+                            "execute" : false,
+                            "host" : "http://localhost:8080/jsonpage/pages/list.json",
+                            "valid" : true,
+                            "base" : {},
+                            "parameters" : {
+                            },
+                            "data" : []
                         }
                     },
                     "components":{                        
@@ -170,7 +181,7 @@
                             "type" : "button",
                             "display" : "material",
                             "library" : "layout",
-                            "data" : "status",
+                            "data" : "list",
                             "options" : {
                                 "value" : "product",
                                 "title" : "Producto",
@@ -215,7 +226,7 @@
                         }
                     ],
                     "databases" : {
-                        
+
                     }
                 };
                 load_start_jsonpage(page,'main');
