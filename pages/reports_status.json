@@ -1,0 +1,241 @@
+{
+    "layouts":[
+        {
+            "tag" : "div",
+            "id" : "report_total",
+            "title" : "",
+            "attributes": {
+                "class" : "card",
+                "style" : "margin:5px; padding:10px;"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "report_total_body",
+                    "attributes": {
+                        "class" : "row g-0"
+                    },
+                    "sublayouts":[
+                            {
+                                "tag" : "div",
+                                "id" : "report_total_icon",
+                                "attributes": {
+                                    "class" : "col-sm-3 dollar_green"
+                                },
+                                "sublayouts":[
+                                ]
+                            },
+                            {
+                                "tag" : "div",
+                                "id" : "report_total_resumen",
+                                "title" : "",
+                                "attributes": {
+                                    "class" : "col-sm-9 row"
+                                },
+                                "sublayouts":[
+                                    {
+                                        "tag" : "h5",
+                                        "id" : "report_total_title",
+                                        "html" : "Ventas totales",
+                                        "attributes": {
+                                            "class" : "col-sm-6 card-title",
+                                            "type":"email"
+                                        },
+                                        "sublayouts":[
+                                        ]
+                                    },
+                                    {
+                                        "tag" : "div",
+                                        "id" : "report_total_value1",
+                                        "html" : "0",
+                                        "attributes": {
+                                            "class" : "col-sm-6"
+                                        },
+                                        "sublayouts":[
+                                        ]
+                                    },
+                                    {
+                                        "tag" : "h5",
+                                        "id" : "report_total_subtitle",
+                                        "html" : "Numero de clientes ",
+                                        "attributes": {
+                                            "class" : "col-sm-6 card-title"
+                                        },
+                                        "sublayouts":[
+                                        ]
+                                    },
+                                    {
+                                        "tag" : "div",
+                                        "id" : "report_total_value2",
+                                        "html" : "0",
+                                        "attributes": {
+                                            "class" : "col-sm-6"
+                                        },
+                                        "sublayouts":[
+                                        ]
+                                    }
+            
+                                ]
+                            }
+                        ]
+                }
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "report_items2",
+            "title" : "",
+            "attributes": {
+                "class" : "row",
+                "style" : "margin:5px; padding:10px;"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "report_items2_card",
+                    "attributes": {
+                        "class" : "card col-sm-6",
+                        "style" : "text-align: center;"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "h5",
+                            "id" : "report_items2_title",
+                            "html" : "Venta promedio",
+                            "attributes": {
+                                "class" : ""
+                            },
+                            "sublayouts":[
+                            ]
+                        },
+                        {
+                            "tag" : "div",
+                            "id" : "report_items2_value",
+                            "html" : "1500",
+                            "attributes": {
+                                "class" : ""
+                            },
+                            "sublayouts":[
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag" : "div",
+                    "id" : "report_items2_card2",
+                    "html" : "",
+                    "attributes": {
+                        "class" : "card col-sm-6",
+                        "style" : "text-align: center;"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "h5",
+                            "id" : "report_items2_title2",
+                            "html" : "Clientes promedio",
+                            "attributes": {
+                                "class" : ""
+                            },
+                            "sublayouts":[
+                            ]
+                        },
+                        {
+                            "tag" : "div",
+                            "id" : "report_items2_value2",
+                            "html" : "150",
+                            "attributes": {
+                                "class" : ""
+                            },
+                            "sublayouts":[
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "report_graphic",
+            "title" : "",
+            "attributes": {
+            },
+            "sublayouts":[
+
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "report_table",
+            "title" : "",
+            "attributes": {
+            },
+            "sublayouts":[
+
+            ]
+        }
+    ],
+    "connections" : {  
+        "graphic_data" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/tendency_graphics.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : ["report_graphic"]
+        },
+        "graphic_config" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/tendency_configuration.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
+        },
+        "table_data" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/report_table_data.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : ["report_table"]
+        },
+        "table_config" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/report_table_config.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
+        }
+    },
+    "components":{
+        "report_graphic" : {
+            "layout": "report_graphic",
+            "type" : "chart",
+            "library" : "echarts",
+            "data" : "graphic_data",
+            "configuration" : "graphic_config",
+            "options" : {
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        },
+        "report_table" : {
+            "layout": "report_table",
+            "type" : "table",
+            "library" : "datatable",
+            "data" : "table_data",
+            "configuration" : "table_config",
+            "options" : {
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        }
+    }
+}

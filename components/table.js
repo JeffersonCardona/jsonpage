@@ -4,9 +4,9 @@
         columns
 */
 function fnc_component_table(item){
-    var component = components[item];
-    var namespace = component.layout +'_table';
-    var title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
+    let component = components[item];
+    let namespace = component.layout +'_table';
+    let title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
     const library = component.library == undefined || component.library.length == 0 ? 'jsgrid' : component.library;
     const carryOn = fnc_carryOn_data('fnc_component_table', item, component.data);
     const carryOnCnf = fnc_carryOn_data('fnc_component_table', item, component.configuration);
@@ -20,19 +20,27 @@ function fnc_component_table(item){
     );
 
     if(carryOn == true && carryOnCnf == true){
-        var fnc_eval = 'fnc_table_'+library+'("'+ namespace +'","'+ component.general +'","'+ component.configuration +'")';
+        let fnc_eval = 'fnc_table_'+library+'("'+ namespace +'","'+ item +'")';
         fnc_validate_load_library(component.type, library, fnc_eval);
     } else{
         fnc_render_default_component(item);
     }
 }
 
-function fnc_table_jsgrid(namespace, component, data, configuration){
-    var obj_jsgrid = $.extend(connections[configuration],{"data": connections[data]});
+function fnc_table_jsgrid(namespace, item){
+    let component = components[item];
+    let obj_jsgrid = $.extend(connections[configuration],{"data": connections[data]});
      $("#"+namespace).jsGrid(obj_jsgrid);
 }
 
-function fnc_table_datatable(namespace, component, data, configuration){
-    var obj_jsgrid = $.extend(connections[configuration],{"data": connections[data]});
-     $("#"+namespace).DataTable(obj_jsgrid);
+function fnc_table_datatable(namespace, item){
+    let component = components[item];
+    let html = '<table id="'+namespace+'_body" class="display"></table>'
+    $('#'+namespace).html(html);
+
+    let table = $('#'+namespace+'_body').dataTable({
+        columns : connections[component.configuration].data, 
+        data : connections[component.data].data
+        }
+    );
 }

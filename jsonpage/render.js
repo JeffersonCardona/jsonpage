@@ -71,3 +71,29 @@ function fnc_reload_html_layout(namespace, default_class, id_div, tag ,attribute
         $('#'+id_div).attr(attributes);
     }
 }
+
+function fnc_set_title(label, dom){
+    let title = dictionary[label] == undefined ? label : dictionary[label];
+    $('#'+dom).html(title);
+}
+
+// Loand JSON(layout,connection, components) in dom definite by component, active execute load component send in json load
+function fnc_load_layout(connection, item){
+    let component = components[item];
+    let dom = component.options.dom == undefined ? 'body' : component.options.dom;
+    
+    $('#'+dom).html('');
+
+    if(connections[connection]['data'].length == 0){
+        fnc_get_data(connection);
+        connections = Object.assign({}, connections, connections[connection]['data'].connections);
+        components = Object.assign({}, components, connections[connection]['data'].components);
+    }
+
+    fnc_create_layout(connections[connection]['data'].layouts, dom);    
+}
+
+function fnc_load_component(item){
+    let component = components[item];
+    eval(types_components[component.type].function_load+'("'+ item +'")');
+}

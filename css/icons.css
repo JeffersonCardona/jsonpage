@@ -67,3 +67,95 @@
     justify-content: center;
     align-items: center;
 }
+
+.icon_add {
+    background-image: url(../images/add_circle_45_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: rgba(255,193,7,1);
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_floating_bottom {
+    position: fixed;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_month {
+    background-image: url(../images/calendar_month_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_day {
+    background-image: url(../images/event_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_before_month {
+    background-image: url(../images/event_repeat_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_range {
+    background-image: url(../images/date_range_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #000000;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dollar_green {
+    background-image: url(../images/paid_45dp_white.svg);
+    background-repeat: no-repeat;
+    left: 20px;
+    background-color: #51ca00;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

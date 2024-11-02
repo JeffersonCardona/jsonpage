@@ -28,7 +28,7 @@ function fnc_create_components(){
                 connections[component['configuration']].components.push(i);
             }
 
-            eval(types_components[component.type].function_load+'("'+ i +'")');
+            fnc_load_component(i);
         }else{
             fnc_log_fail('fnc_create_components', 'Type component not found', component);
         }
@@ -36,12 +36,12 @@ function fnc_create_components(){
 }
 
 function fnc_activate_components(item){
-    var connection = connections[item];
+    let connection = connections[item];
     
-    for( i in connection.components){
-        var component = components[i].component;
+    for(let i in connection.components){
+        let component = components[connection.components[i]];
         if(types_components[component] == undefined){
-            eval(types_components[component]+'('+ i +'');
+            fnc_load_component(connection.components[i]);
         }else{
             fnc_log_fail('fnc_activate_components', 'Type component not found, connection ' + item, component);
         }
@@ -67,8 +67,6 @@ function fnc_execute_action(component, value){
 }
 
 function fnc_load_parameters_connections(connection, parameters){
-    console.log(connection);
-    console.log(parameters);
     connections[connection].parameters = $.extend(connections[connection].parameters, parameters);
 
     fnc_validate_connection(connection);
@@ -81,8 +79,6 @@ function fnc_load_parameters_connections(connection, parameters){
 
     // Load depency connections
     for(let i in connections[connection]['components']){
-        let component = components[connections[connection]['components'][i]];
-        console.log(component);
-        eval(types_components[component.type].function_load+'("'+ connections[connection]['components'][i] +'")');
+        fnc_load_component(connections[connection]['components'][i]);
     }
 }

@@ -22,31 +22,57 @@ function fnc_load_connections(parameters = {}){
 }
 
 function fnc_get_data(cnx){
-    let parameters = $.extend( connections[cnx].base, connections[cnx].parameters);
-    let json = '';
-    
-    if(Object.keys(parameters).length){
-        json = fnc_crypto_aes(JSON.stringify(parameters));
-    }
-    
-    let request = $.ajax({
-        async : false,
-        method: "POST",
-        url: service_balance,
-        data: {
-            'host' : connections[cnx].host,
-            'json' : json
+    if(connections[cnx]['database'] && database[cnx] != undefined ){
+        let data = [];
+        if(connections[cnx]['filters'] != undefined){
+            for(let i in connections[cnx]['data']){
+                let insert = true;
+                for(j in connections[cnx]['filters']){
+                    if( connections[cnx]['data'][i][j] != connections[cnx]['filters'][j]){
+                        insert = false;
+                    }
+                }
+
+                if(insert){
+                    data.push(connections[cnx]['data'][i]);
+                }
+            }
+        }else{
+             data = Object.assign({}, database[cnx].data);
         }
-    });
 
-    request.done(function(data){
         connections[cnx]['data'] = data;
-    });
+    }else{
+        let parameters = $.extend( connections[cnx].base, connections[cnx].parameters);
+        let json = '';
+        
+        if(Object.keys(parameters).length){
+            json = fnc_crypto_aes(JSON.stringify(parameters));
+        }
+        
+        let request = $.ajax({
+            async : false,
+            method: "POST",
+            url: service_balance,
+            data: {
+                'host' : connections[cnx].host,
+                'json' : json
+            }
+        });
+    
+        request.done(function(data){
+            connections[cnx]['data'] = data;
 
-    request.fail(function( jqXHR, textStatus ) {
-        connections[cnx]['data'] = {};
-        fnc_log_fail('fnc_get_data', jqXHR, cnx);
-    });
+            if(connections[cnx]['database']){
+                database[cnx] = Object.assign({}, {"sync": false, "data" : data});
+            }
+        });
+    
+        request.fail(function( jqXHR, textStatus ) {
+            connections[cnx]['data'] = {};
+            fnc_log_fail('fnc_get_data', jqXHR, cnx);
+        });
+    }    
 }
 
 function fnc_validate_connection(connection){

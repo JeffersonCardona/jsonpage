@@ -65,6 +65,7 @@ function fnc_load_library(library){
     item = document.createElement('link');
     item.setAttribute('type','text/css');
     item.setAttribute('rel','stylesheet');
+    item.setAttribute('charset','utf-8');
     item.setAttribute('href',library.source);
   }
 
@@ -90,4 +91,10 @@ function fnc_get_parameters(url_string, parameter) {
 
 function fnc_log_fail(fnc, message){
   TypeError(fnc, message);
+}
+
+function dateFormat(format, options) {
+  const opciones = { hour: '2-digit', minute: '2-digit' };
+  let now = new Date();
+  return new Intl.DateTimeFormat(format, options).format(now);
 }

@@ -46,10 +46,10 @@ function fnc_lists_cards(namespace, item, connection, carryOn){
 
     for(let i in data){
         let row = "<div class='card' style='margin: 5px;' id='row_list_"+i+"'>"+ template +"</div>";
-        row = row.replace("$index", i);
+        row = row.replaceAll("$index", i);
 
         for(let j in data[i]){
-            row = row.replace("$"+j, data[i][j]);
+            row = row.replaceAll("$"+j, data[i][j]);
         } 
         
         $('#'+namespace).append(row);

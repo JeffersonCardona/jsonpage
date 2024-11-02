@@ -9,6 +9,191 @@
             },
             "sublayouts":[
             ]
+        },
+        {
+            "tag" : "div",
+            "id" : "status_items_push",
+            "title" : "",
+            "html" : "",
+            "attributes": {
+                "class": "icon_add icon_floating_bottom",
+                "style": "cursor: pointer;",
+                "data-bs-toggle" : "modal",
+                "data-bs-target" : "#modalpushstatus"
+            },
+            "sublayouts":[
+
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "modalpushstatus",
+            "title" : "",
+            "html" : "",
+            "attributes": {
+                "class":"modal fade",
+                "data-bs-backdrop":"static" ,
+                "data-bs-keyboard":"false",
+                "tabindex":"-1",
+                "aria-labelledby":"modalpushstatusLabel",
+                "aria-hidden":"true",
+                "onclick" : "fnc_status_push()"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "modalpushstatus_main",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "modal-dialog modal-lg"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "div",
+                            "id" : "modalpushstatus_content",
+                            "title" : "",
+                            "attributes": {
+                                "class" : "modal-content"
+                            },
+                            "sublayouts":[
+                                {
+                                    "tag" : "div",
+                                    "id" : "modalpushstatus_header",
+                                    "title" : "",
+                                    "html" : "<h1 class='modal-title fs-5' id='modalpushstatus_title'>Ruta nueva</h1><button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>",
+                                    "attributes": {
+                                        "class" : "modal-header"
+                                    },
+                                    "sublayouts":[
+                                    ]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "modalpushstatus_body",
+                                    "title" : "",
+                                    "attributes": {
+                                        "class" : "modal-body row"
+                                    },
+                                    "sublayouts":[
+                                        {
+                                            "tag" : "label",
+                                            "id" : "list_search_label",
+                                            "html" : "Buscar",
+                                            "attributes": {
+                                                "class" : "col-sm-2 col-form-label col-form-label-lg"
+                                            },
+                                            "sublayouts":[
+                                            ]
+                                        },
+                                        {
+                                            "tag" : "div",
+                                            "id" : "list_search_div",
+                                            "title" : "",
+                                            "attributes": {
+                                                "class" : "col-sm-10",
+                                                "style" : "margin-bottom: 10px;"
+                                            },
+                                            "sublayouts":[
+                                                {
+                                                    "tag" : "input",
+                                                    "id" : "status_search_custom",
+                                                    "title" : "",
+                                                    "attributes": {
+                                                        "class" : "form-control form-control-lg",
+                                                        "type":"email",
+                                                        "placeholder":"Codigo o Nombre"
+                                                    },
+                                                    "sublayouts":[
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag" : "div",
+                                            "id" : "status_search_list",
+                                            "html" : "<div class='col-form-label col-form-label-lg' style='text-align: center;'>Digitar para ver lista</div>",
+                                            "attributes": {
+                                                "class" : "col-sm-12"
+                                            },
+                                            "sublayouts":[
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "modal_status_cancel",
+            "title" : "",
+            "html" : "",
+            "attributes": {
+                "class":"modal fade",
+                "data-bs-backdrop":"static" ,
+                "data-bs-keyboard":"false",
+                "tabindex":"-1",
+                "aria-labelledby":"modal_status_cancel",
+                "aria-hidden":"true"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "modal_status_cancel_main",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "modal-dialog modal-lg"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "div",
+                            "id" : "modal_status_cancel_content",
+                            "title" : "",
+                            "attributes": {
+                                "class" : "modal-content"
+                            },
+                            "sublayouts":[
+                                {
+                                    "tag" : "div",
+                                    "id" : "modal_status_cancel_header",
+                                    "title" : "",
+                                    "html" : "<h1 class='modal-title fs-5' id='modal_status_cancel_title'>Cerrar ruta</h1><button type='button' id='pg_status_close_cancel' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>",
+                                    "attributes": {
+                                        "class" : "modal-header"
+                                    },
+                                    "sublayouts":[
+                                    ]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "modal_status_cancel_body",
+                                    "title" : "",
+                                    "html" : "<h6 style='margin-bottom:10px;' >Desea cerrar la ruta <b id='modal_status_cancel_title_item'></b></h6>",
+                                    "attributes": {
+                                        "class" : "modal-body"
+                                    },
+                                    "sublayouts":[
+                                    ]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "modal_status_cancel_footer",
+                                    "title" : "",
+                                    "html" : "<button type='button' class='btn-sm btn btn-secondary col-md-3' data-bs-dismiss='modal'>NO</button><button type='button' style='margin-left: 5px;' class='btn-sm btn btn-primary col-md-3' onclick='fnc_pg_status_close()'>SI</button>",
+                                    "attributes": {
+                                        "class" : "modal-footer"
+                                    },
+                                    "sublayouts":[
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "connections" : {    
@@ -16,6 +201,10 @@
             "execute" : true,
             "host" : "http://localhost:8080/jsonpage/demo/data/cards.json",
             "valid" : true,
+            "database" : true,
+            "filters" : {
+                "status" : "active"
+            },
             "base" : {},
             "parameters" : {},
             "data" : [],
@@ -57,7 +246,20 @@
             "data" : "status_list",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' onclick='fnc_action_items_status(3, $index)''>Cancelar</a></li></ul></div></div>"
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_status_show_close($index)''>Cerrar</a></li></ul></div></div>"
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        },
+        "status_search_list" : {
+            "layout": "status_search_list",
+            "type" : "list",
+            "library" : "cards",
+            "data" : "list_custom",
+            "configuration" : "",
+            "options" : {
+                "template" : "<div class='row g-0'><div class='col-md-10'> <div class='card-body'><h5 class='card-title'>$point_name</h5><p class='card-text'><small class='text-body-secondary'> $name : $address</small></p>  </div></div><div class='col-md-2 py-3' style='cursor: pointer;'><div class='icon_add' onclick='fnc_add_status($index)'> </div></div></div>"
             },
             "parameters" : [],
             "active" : [],

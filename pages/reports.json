@@ -1,0 +1,49 @@
+{
+    "layouts":[
+        {
+            "tag" : "div",
+            "id" : "lists_reports",
+            "title" : "",
+            "attributes": {
+            },
+            "sublayouts":[
+
+            ]
+        }
+    ],
+    "connections" : {  
+        "lists_reports" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/lists_reports.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : ["lists_reports"]
+        },
+        "lists_reports_status" : {
+            "execute" : false,
+            "host" : "http://localhost:8080/jsonpage/pages/reports_status.json",
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
+        }
+    },
+    "components":{
+        "lists_reports" : {
+            "layout": "lists_reports",
+            "type" : "list",
+            "library" : "cards",
+            "data" : "lists_reports",
+            "configuration" : "",
+            "options" : {
+                "template" : "<div class='row g-0' style='cursor:pointer;' onclick='fnc_report_active($index)'><div class='col-md-1 card-body'>  <div class='icon $class'></div>  <p class='card-text'></p></div><div class='col-md-11'>  <div class='card-body'><h5 class='card-title'>$title</h5><p class='card-text'><small class='text-body-secondary'> $subtitle : $value</small></p>  </div></div>"
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        }
+    }
+}

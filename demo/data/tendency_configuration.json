@@ -1,0 +1,98 @@
+{
+    "tooltip": {
+        "trigger": "axis",
+        "axisPointer": {
+            "type": "cross",
+            "crossStyle": {
+                "color": "#999"
+            }
+        }
+    },
+    "toolbox": {
+        "feature": {
+            "dataView": {
+                "show": true,
+                "readOnly": false
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar"
+                ]
+            },
+            "restore": {
+                "show": true
+            },
+            "saveAsImage": {
+                "show": true
+            }
+        }
+    },
+    "legend": {
+        "data": [
+            "venta",
+            "cantidad",
+            "clientes"
+        ]
+    },
+    "xAxis": [
+        {
+            "type": "category",
+            "data": [
+            ],
+            "axisPointer": {
+                "type": "shadow"
+            }
+        }
+    ],
+    "yAxis": [
+        {
+            "type": "value",
+            "name": "cantidad",
+            "axisLabel": {
+                "formatter": "{value}"
+            }
+        },
+        {
+            "type": "value",
+            "name": "clientes",
+            "axisLabel": {
+                "formatter": "{value}"
+            }
+        },
+        {
+            "type": "value",
+            "name": "venta",
+            "axisLabel": {
+                "formatter": "{value}"
+            }
+        }
+    ],
+    "series": [
+        {
+            "name": "cantidad",
+            "type": "bar",
+            "yAxisIndex": 0,
+            "tooltip": {},
+            "data": [
+            ]
+        },
+        {
+            "name": "clientes",
+            "type": "bar",
+            "yAxisIndex": 1,
+            "tooltip": {},
+            "data": [
+            ]
+        },
+        {
+            "name": "venta",
+            "type": "line",
+            "yAxisIndex": 2,
+            "tooltip": {},
+            "data": [
+            ]
+        }
+    ]
+}

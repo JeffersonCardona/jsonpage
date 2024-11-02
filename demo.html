@@ -9,9 +9,12 @@
         <script src="jsonpage/render.js"></script>
         <script src="jsonpage/actions.js"></script>
         <script src="jsonpage/connection.js"></script>
+        <script src="jsonpage/database.js"></script>
         <script src="components/selector.js"></script>
         <script src="components/button.js"></script>
         <script src="components/lists.js"></script>
+        <script src="components/chart.js"></script>
+        <script src="components/table.js"></script>
 
         <link rel="stylesheet" href="packages/material-icons/iconfont/material-icons.css">
         <link rel="stylesheet" href="packages/bootstrap/css/bootstrap.min.css" type="text/css" media="screen">
@@ -52,7 +55,8 @@
                             "id" : "body",
                             "title" : "",
                             "attributes": {
-                                "class" : ""
+                                "class" : "",
+                                "style" : "padding-bottom : 70px;"
                             },
                             "sublayouts":[                                
                             ]
@@ -70,7 +74,8 @@
                                     "tag" : "div",
                                     "id" : "button_status",
                                     "attributes": {
-                                        "class" : "col text-center"
+                                        "class" : "col text-center",
+                                        "onclick" : "fnc_set_title('Rutas', 'title')"
                                     },
                                     "sublayouts":[]
                                 },
@@ -78,7 +83,8 @@
                                     "tag" : "div",
                                     "id" : "buttons_report",
                                     "attributes": {
-                                        "class" : "col text-center"
+                                        "class" : "col text-center",
+                                        "onclick" : "fnc_set_title('Reporte', 'title')"
                                     },
                                     "sublayouts":[]
                                 },
@@ -86,7 +92,8 @@
                                     "tag" : "div",
                                     "id" : "button_product",
                                     "attributes": {
-                                        "class" : "col text-center"
+                                        "class" : "col text-center",
+                                        "onclick" : "fnc_set_title('Lista', 'title')"
                                     },
                                     "sublayouts":[]
                                 },
@@ -94,7 +101,8 @@
                                     "tag" : "div",
                                     "id" : "button_list",
                                     "attributes": {
-                                        "class" : "col text-center"
+                                        "class" : "col text-center",
+                                        "onclick" : "fnc_set_title('Usuarios', 'title')"
                                     },
                                     "sublayouts":[]
                                 },
@@ -102,7 +110,8 @@
                                     "tag" : "div",
                                     "id" : "button_setting",
                                     "attributes": {
-                                        "class" : "col text-center"
+                                        "class" : "col text-center",
+                                        "onclick" : "fnc_set_title('Configuracion', 'title')"
                                     },
                                     "sublayouts":[]
                                 }
@@ -131,7 +140,7 @@
                         },
                         "report" : {
                             "execute" : false,
-                            "host" : "http://localhost:8080/jsonpage/pages/filters.json",
+                            "host" : "http://localhost:8080/jsonpage/pages/reports.json",
                             "valid" : true,
                             "base" : {},
                             "parameters" : {
@@ -146,6 +155,15 @@
                             "parameters" : {
                             },
                             "data" : []
+                        },
+                        "list_custom" : {
+                            "execute" : false,
+                            "host" : "http://localhost:8080/jsonpage/demo/data/list_custom.json",
+                            "valid" : true,
+                            "base" : {},
+                            "parameters" : {},
+                            "data" : [],
+                            "components" : []
                         }
                     },
                     "components":{                        
@@ -224,6 +242,10 @@
                         {
                             "type" : "script",
                             "source" : "js/status_page.js"
+                        },
+                        {
+                            "type" : "script",
+                            "source" : "js/report_page.js"
                         }
                     ],
                     "databases" : {
