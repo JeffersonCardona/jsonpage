@@ -14,5 +14,5 @@
     { "code": 13,"city" : "Palmira" , "point_name" : "Punto Venta 1", "name" : "Cliente 1", "address" : "Cra 6 9-66" },
     { "code": 14,"city" : "Palmira" , "point_name" : "Punto Venta 1", "name" : "Cliente 2", "address" : "Calle 7 1-74" },
     { "code": 15,"city" : "Candelaria" , "point_name" : "Punto Venta 1", "name" : "Cliente 3", "address" : "Calle 4 5-400" },
-    { "code": 16,"city" : "Candelaria" , "point_name" : "Punto Venta 1", "name" : "Cliente 4", "address" : "10:30" }
+    { "code": 160,"city" : "Candelaria" , "point_name" : "Punto Venta 160", "name" : "Cliente 160", "address" : "10:30" }
 ]

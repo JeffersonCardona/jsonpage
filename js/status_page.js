@@ -39,23 +39,32 @@ function fnc_status_push(){
 
 function fnc_add_status(index){
     let db = 'list_custom';
+    let cnx='status_list';
     let selected = connections[db].data[index];
     let dataFormat = dateFormat("es-ES", { "hour": "2-digit", "minute": "2-digit" });
 
-    //item new
-    let item = {
-        "code" : selected.code,
-        "icon" : "person",
-        "name" : selected.name,
-        "hour" : dataFormat,
-        "status" : "activo"
-    }
+    let exist = fnc_exists_record(cnx, 'code', selected.code);
 
-    // add item
-    database.status_list.data.unshift(item);
+    if(exist){
+        toastr['error']('El usuario ya tiene una ruta existente');
+    }else{
+        //item new
+        let item = {
+            "code" : selected.code,
+            "icon" : "person",
+            "name" : selected.name,
+            "hour" : dataFormat,
+            "status" : "activo"
+        }
 
-    fnc_load_component('status_list');
-    $('#modalpushstatus').modal('hide');
+        // add item
+        database[cnx].data.unshift(item);
+
+        fnc_load_component(cnx);
+        $('#modalpushstatus').modal('hide');
+
+        toastr['success']('La ruta ha sido creada');
+    }   
 }
 
 function fnc_status_show_close(index){
@@ -71,10 +80,12 @@ function fnc_pg_status_close(){
     let cnx='status_list';
     let selected = connections[cnx].data[pg_status_close_index];
 
-    fnc_set_database(cnx, 'code', selected.code, 'status', 'closed');
+    fnc_set_database(cnx, 'code', ''+selected.code, 'status', 'closed');
     fnc_set_sync_table(cnx);
     connections[cnx].data.splice(pg_status_close_index, 1);
     fnc_load_component(cnx);
     $('#modal_status_cancel').modal('hide');
+
+    toastr['success']('La ruta ha sido cerrada');
 
 }

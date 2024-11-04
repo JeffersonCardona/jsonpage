@@ -23,8 +23,8 @@ function fnc_load_connections(parameters = {}){
 
 function fnc_get_data(cnx){
     if(connections[cnx]['database'] && database[cnx] != undefined ){
-        let data = [];
         if(connections[cnx]['filters'] != undefined){
+            let data = [];
             for(let i in connections[cnx]['data']){
                 let insert = true;
                 for(j in connections[cnx]['filters']){
@@ -37,11 +37,12 @@ function fnc_get_data(cnx){
                     data.push(connections[cnx]['data'][i]);
                 }
             }
+
+            connections[cnx]['data'] = data;
         }else{
-             data = Object.assign({}, database[cnx].data);
+            connections[cnx]['data'] = jQuery.extend(true, {}, database[cnx].data);
         }
 
-        connections[cnx]['data'] = data;
     }else{
         let parameters = $.extend( connections[cnx].base, connections[cnx].parameters);
         let json = '';
@@ -64,7 +65,7 @@ function fnc_get_data(cnx){
             connections[cnx]['data'] = data;
 
             if(connections[cnx]['database']){
-                database[cnx] = Object.assign({}, {"sync": false, "data" : data});
+                database[cnx] = jQuery.extend(true, {}, {"sync": false, "data" : data});
             }
         });
     
