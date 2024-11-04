@@ -4,13 +4,13 @@
         <script src="packages/jquery/jquery.min.js"></script>
         <script src="packages/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="packages/crypto/aes.js"></script>
+        <script src="packages/toastr/toastr.min.js"></script>
         <script src="jsonpage/variables.js"></script>
         <script src="jsonpage/core.js"></script>
         <script src="jsonpage/render.js"></script>
         <script src="jsonpage/actions.js"></script>
         <script src="jsonpage/connection.js"></script>
         <script src="jsonpage/database.js"></script>
-        <script src="packages/toastr/toastr.min.js"></script>
 
         <link rel="stylesheet" href="packages/material-icons/iconfont/material-icons.css">
         <link rel="stylesheet" href="packages/bootstrap/css/bootstrap.min.css" type="text/css" media="screen">
@@ -174,7 +174,8 @@
                                 "value" : "status",
                                 "title" : "estado",
                                 "icon" : "pending_actions",
-                                "dom" : "body"
+                                "dom" : "body",
+                                "default_click": true
                             },
                             "title" : ""
                         },
@@ -246,7 +247,6 @@
                         }
                     ],
                     "databases" : {
-
                     }
                 };
                 // Load components

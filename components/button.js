@@ -44,10 +44,14 @@ function fnc_component_button(item){
         $('#'+namespace).prop( 'disabled', true );
     }    
 
-    $( '#'+namespace ).on( "click", function() {
+    $('#'+namespace ).on( "click", function() {
         let fnc_eval = 'fnc_action_'+library+'("'+ namespace +'","'+ item +'","'+ component.data +'", '+carryOn+')';
         fnc_validate_load_library(component.type, library, fnc_eval);
-    } );
+    });
+
+    if(component.options['default_click']){
+        document.getElementById(namespace).click();
+    }
 }
 
 function fnc_action_default(namespace, item, data, carryOn){
