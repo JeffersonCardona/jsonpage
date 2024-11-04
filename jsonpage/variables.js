@@ -14,6 +14,8 @@ var dictionary = {};
 var start_page = false;
 var libraries_loaded = {};
 var database = {'sync':{}};
+var components_load = {};
+var load_page = false;
 const type_not_package = ["layout", "lists", "cards"];
 const types_components = {
         "button" : {
@@ -32,6 +34,10 @@ const types_components = {
                                         "source" : "packages/buttons/buttons.min.css"
                                 }
                         ]
+                },
+                "package" : {
+                                "type" : "script",
+                                "source" : "components/button.js"
                 }
         },
         "selector" : {
@@ -58,7 +64,13 @@ const types_components = {
                                 "source" : "packages/chosen/chosen.min.css"
                                 }
                         ]
-                }
+                },
+                "package" : 
+                        {
+                                "type" : "script",
+                                "source" : "components/selector.js"
+                        }
+                
         },
         "date " :{
                 "function_load" : "fnc_component_date",
@@ -70,7 +82,12 @@ const types_components = {
                                         "source" : "packages/flatpickr/flatpickr.min.js"
                                 }
                         ]
-                }
+                },
+                "package" : 
+                        {
+                                "type" : "script",
+                                "source" : "components/date.js"
+                        }                
         },
         "table" : {
                 "function_load" : "fnc_component_table",
@@ -100,7 +117,12 @@ const types_components = {
                                 "source" : "packages/datatables/responsive.dataTables.min.css"
                                 }
                         ]
-                }
+                },
+                "package" : 
+                        {
+                                "type" : "script",
+                                "source" : "components/table.js"
+                        }                
         },
         "chart" : {
                 "function_load" : "fnc_component_chart",
@@ -140,7 +162,12 @@ const types_components = {
                                 "source" : "packages/echarts/echarts.min.js"
                                 }
                         ]
-                }
+                },
+                "package" : 
+                        {
+                                "type" : "script",
+                                "source" : "components/chart.js"
+                        }                
         },
         "popup" : {
                 "function_load" : "fnc_component_popup",
@@ -156,7 +183,12 @@ const types_components = {
                                         "source" : "packages/sweetalert/sweetalert2.min.css"
                                 }
                         ]
-                }
+                },
+                "package" : 
+                        {
+                                "type" : "script",
+                                "source" : "components/popup.js"
+                        }                
         },
         "slider" : {
                 "function_load" : "fnc_component_slider",
@@ -184,7 +216,12 @@ const types_components = {
                                         "source" : "packages/glide/css/glide.theme.min.css"
                                 }
                         ]
-                }
+                },
+                "package" : 
+                        {
+                                "type" : "script",
+                                "source" : "components/slider.js"
+                        }                
         },
         "editor" : {
             "function_load" : "fnc_component_edit",
@@ -194,8 +231,13 @@ const types_components = {
             "function_load" : "fnc_component_upload",
             "default_class" : "default_upload"
         },
-        "list" : {
+        "lists" : {
                 "function_load" : "fnc_component_lists",
-                "default_class" : "default_list"
+                "default_class" : "default_list",
+                "package" : 
+                {
+                        "type" : "script",
+                        "source" : "components/lists.js"
+                } 
         }
 };

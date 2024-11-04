@@ -3,6 +3,9 @@
         register
         columns
 */
+
+fnc_load_package_component('chart');
+
 function fnc_component_chart(item){
     let component = components[item];
     const namespace = component.layout +'_graphic';

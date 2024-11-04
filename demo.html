@@ -10,11 +10,6 @@
         <script src="jsonpage/actions.js"></script>
         <script src="jsonpage/connection.js"></script>
         <script src="jsonpage/database.js"></script>
-        <script src="components/selector.js"></script>
-        <script src="components/button.js"></script>
-        <script src="components/lists.js"></script>
-        <script src="components/chart.js"></script>
-        <script src="components/table.js"></script>
         <script src="packages/toastr/toastr.min.js"></script>
 
         <link rel="stylesheet" href="packages/material-icons/iconfont/material-icons.css">
@@ -254,6 +249,10 @@
 
                     }
                 };
+                // Load components
+    components = page.components;
+    fnc_load_components_page();
+    
                 load_start_jsonpage(page,'main');
             });
         </script>

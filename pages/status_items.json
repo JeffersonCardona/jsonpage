@@ -119,7 +119,7 @@
     "components":{
         "status_items_products" : {
             "layout": "status_items_products",
-            "type" : "list",
+            "type" : "lists",
             "library" : "cards",
             "data" : "status_list",
             "configuration" : "",

@@ -1,3 +1,5 @@
+fnc_load_package_component('date');
+
 function fnc_component_date(item){
     var component = components[item];
     var namespace = component.layout +'_date';

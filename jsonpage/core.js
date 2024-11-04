@@ -4,6 +4,11 @@
 
 function load_start_jsonpage(page, dom){
     var parameters = fnc_get_parameters(window.location.href, 'parameters');
+
+    // Load components
+    components = page.components;
+    fnc_load_components_head('fnc_create_components()');
+
     // Load render
     fnc_create_layout(page.layouts, dom);
 
@@ -12,15 +17,28 @@ function load_start_jsonpage(page, dom){
     fnc_load_connections(parameters);
 
     // Load componentes
-    components = page.components;
-    fnc_create_components();
-
+    if(load_page){
+      fnc_create_components()
+    }
     // Load files
     if(page['libraries'] != undefined && page.libraries.length > 0){
       for(let i in page.libraries){
         let item = fnc_load_library(page.libraries[i]);
       }
     }
+}
+
+function fnc_load_components_head(fnc){
+  for(let i in components){
+    if(components_load[components[i].type] == undefined){      
+      components_load[components[i].type] = false;
+      fnc_load_library(types_components[components[i].type].package, fnc);
+    }
+  }
+}
+
+function fnc_load_components_page(p){
+  
 }
 
 function fnc_validate_load_library(type, library, fnc_eval){
@@ -53,13 +71,18 @@ function fnc_validate_load_library(type, library, fnc_eval){
   }
 }
 
-function fnc_load_library(library){  
+function fnc_load_library(library, onload=undefined){  
   let item;
 
   if(library.type == 'script'){
     item = document.createElement('script');
     item.setAttribute('type','text/javascript');
     item.setAttribute('src',library.source);
+
+    if(onload != undefined){
+      item.setAttribute('onload',onload);
+    }
+
   }else
   if(library.type == 'css'){
     item = document.createElement('link');
@@ -71,11 +94,24 @@ function fnc_load_library(library){
 
   document.head.appendChild(item);
 
+  
   return item;
 }
 
+function fnc_load_package_component(type){
+  components_load[type]= true;
+  
+  load_page = true;
+  for(let i in components_load){
+    if(components_load[i] == false){
+      load_page = false;
+      break;
+    }
+  }
+}
+
 function sleepFor( sleepDuration ){
-  var now = new Date().getTime();
+  let now = new Date().getTime();
   while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
 }
 
@@ -84,8 +120,8 @@ function sleep (time) {
 }
 
 function fnc_get_parameters(url_string, parameter) {
-  var url = new URL(url_string);
-  var value = url.searchParams.get(parameter);
+  let url = new URL(url_string);
+  let value = url.searchParams.get(parameter);
   return value;
 }
 

@@ -1,3 +1,5 @@
+fnc_load_package_component('lists');
+
 function fnc_component_lists(item){
     let component = components[item];
     let data = component.data == undefined ?  [] : connections[component.data].data;

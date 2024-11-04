@@ -78,7 +78,7 @@
     "components":{
         "lists_items" : {
             "layout": "lists_items",
-            "type" : "list",
+            "type" : "lists",
             "library" : "cards",
             "data" : "lists_items",
             "configuration" : "",

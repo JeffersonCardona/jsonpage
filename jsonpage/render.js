@@ -94,6 +94,9 @@ function fnc_load_layout(connection, item){
 }
 
 function fnc_load_component(item){
-    let component = components[item];
-    eval(types_components[component.type].function_load+'("'+ item +'")');
+    let type = components[item].type;
+
+    if(load_page && components_load[type]){
+        eval(types_components[type].function_load+'("'+ item +'")');
+    }
 }

@@ -241,7 +241,7 @@
     "components":{
         "status_list" : {
             "layout": "status_list",
-            "type" : "list",
+            "type" : "lists",
             "library" : "cards",
             "data" : "status_list",
             "configuration" : "",
@@ -254,7 +254,7 @@
         },
         "status_search_list" : {
             "layout": "status_search_list",
-            "type" : "list",
+            "type" : "lists",
             "library" : "cards",
             "data" : "list_custom",
             "configuration" : "",

@@ -1,3 +1,5 @@
+fnc_load_package_component('popup');
+
 function fnc_component_popup(item, data=undefined){
     if( data != undefined){
         Swal.fire(data);

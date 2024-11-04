@@ -16,23 +16,26 @@
 */
 
 function fnc_create_components(){
-    for(i in components){
-        var component = components[i];
-
-        if(types_components[component.type] != undefined){
-            if(component['data'] != undefined && component['data'] != component['data'].length > 0){
-                connections[component['data']].components.push(i);
+    console.log('fnc_create_components');
+    if (load_page) {
+        for(i in components){
+            var component = components[i];
+    
+            if(types_components[component.type] != undefined){
+                if(component['data'] != undefined && component['data'] != component['data'].length > 0){
+                    connections[component['data']].components.push(i);
+                }
+    
+                if(component['configuration'] != undefined && component['configuration'].length > 0){
+                    connections[component['configuration']].components.push(i);
+                }
+    
+                fnc_load_component(i);
+            }else{
+                fnc_log_fail('fnc_create_components', 'Type component not found', component);
             }
-
-            if(component['configuration'] != undefined && component['configuration'].length > 0){
-                connections[component['configuration']].components.push(i);
-            }
-
-            fnc_load_component(i);
-        }else{
-            fnc_log_fail('fnc_create_components', 'Type component not found', component);
         }
-    }
+    }    
 }
 
 function fnc_activate_components(item){

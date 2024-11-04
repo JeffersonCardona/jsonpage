@@ -1,3 +1,5 @@
+fnc_load_package_component('slider');
+
 /*
     data
         title

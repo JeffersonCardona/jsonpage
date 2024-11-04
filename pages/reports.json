@@ -34,7 +34,7 @@
     "components":{
         "lists_reports" : {
             "layout": "lists_reports",
-            "type" : "list",
+            "type" : "lists",
             "library" : "cards",
             "data" : "lists_reports",
             "configuration" : "",
