@@ -2,6 +2,61 @@
     "layouts":[
         {
             "tag" : "div",
+            "id" : "status_filters",
+            "title" : "",
+            "attributes": {
+                "class" : "row",
+                "style" : "margin: 10px;"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "div_status_search_list",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "col"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "input",
+                            "id" : "status_search_list_body",
+                            "title" : "",
+                            "attributes": {
+                                "class" : "form-control form-control-lg",
+                                "type":"text",
+                                "placeholder":"Codigo o Nombre",
+                                "onkeyup":"fnc_status_filter_onchange()"
+                            },
+                            "sublayouts":[
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag" : "div",
+                    "id" : "div_status_search_select",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "col"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "select",
+                            "id" : "status_search_select_body",
+                            "html" : "<option value='all'>Todas</option><option value='active'>Activas</option><option value='closed'>Cerradas</option>",
+                            "attributes": {
+                                "class" : "form-control form-control-lg",
+                                "onchange":"fnc_status_filter_onchange()"
+                            },
+                            "sublayouts":[
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag" : "div",
             "id" : "status_list",
             "title" : "",
             "attributes": {

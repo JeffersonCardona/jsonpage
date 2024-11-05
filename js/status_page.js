@@ -89,3 +89,33 @@ function fnc_pg_status_close(){
     toastr['success']('La ruta ha sido cerrada');
 
 }
+
+function fnc_status_filter_onchange(){
+    let cnx = 'status_list';
+    let search_text = document.getElementById('status_search_list_body').value;
+    let data = [];
+    if(search_text.length > 0){
+        data = fnc_get_filter_database(cnx, ['code', 'name'], search_text);
+    }
+
+    if(data.length == 0){
+        data = jQuery.extend(true, {},database[cnx].data);
+    }
+
+    let r_data = [];
+    search_text = document.getElementById('status_search_select_body').value;
+
+    if(search_text != 'all'){
+        for(let i in data){
+            if(data[i].status == search_text){
+                r_data.push(data[i]);
+            }
+        }
+    }else{
+        r_data = data;
+    }
+    
+    connections[cnx].components = [cnx]; 
+    connections[cnx].data = r_data;
+    fnc_activate_components(cnx);
+}

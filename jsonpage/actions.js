@@ -16,7 +16,7 @@
 */
 
 function fnc_create_components(){
-    console.log('fnc_create_components');
+    
     if (load_page) {
         for(i in components){
             var component = components[i];

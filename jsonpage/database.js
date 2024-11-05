@@ -1,17 +1,18 @@
 function fnc_load_database_from_connection(table, connection, reload=false){
     if(database[table] == undefined || database.list_custom.length == 0 || reload){
         fnc_get_data(table);
-        database[table] = jQuery.extend(true, {},connections[connection].data);
+        database[table] = {};
+        database[table]['data'] = jQuery.extend(true, {},connections[connection].data);
     }
 }
 
 function fnc_get_filter_database(table, filters, value){
     let result = [];
 
-    for(let i in database[table]){
+    for(let i in database[table].data){
         for(let j in filters){
-            if((''+database[table][i][filters[j]]).indexOf(value) >= 0){
-                result.push(database[table][i]);
+            if((''+database[table].data[i][filters[j]]).indexOf(value) >= 0){
+                result.push(database[table].data[i]);
                 break;
             }
         }
