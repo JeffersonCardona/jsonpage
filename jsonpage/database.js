@@ -1,5 +1,5 @@
 function fnc_load_database_from_connection(table, connection, reload=false){
-    if(database[table] == undefined || database.list_custom.length == 0 || reload){
+    if(database[table] == undefined || database[table].length == 0 || reload){
         fnc_get_data(table);
         database[table] = {};
         database[table]['data'] = jQuery.extend(true, {},connections[connection].data);

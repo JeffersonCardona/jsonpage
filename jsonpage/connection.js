@@ -111,3 +111,33 @@ function fnc_carryOn_data(fnc, component, connection){
 
     return carryOn;
 }
+
+function fnc_filter_input_select_onchange(cnx, input_search, select_search, filters, filter_select){
+    
+    let search_text = document.getElementById(input_search).value;
+    let data = [];
+    if(search_text.length > 0){
+        data = fnc_get_filter_database(cnx, filters, search_text);
+    }
+
+    if(data.length == 0){
+        data = jQuery.extend(true, {},database[cnx].data);
+    }
+
+    let r_data = [];
+    search_text = document.getElementById(select_search).value;
+
+    if(search_text != 'all'){
+        for(let i in data){
+            if(data[i][filter_select] == search_text){
+                r_data.push(data[i]);
+            }
+        }
+    }else{
+        r_data = data;
+    }
+    
+    connections[cnx].components = [cnx]; 
+    connections[cnx].data = r_data;
+    fnc_activate_components(cnx);
+}

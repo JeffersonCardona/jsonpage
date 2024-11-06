@@ -87,7 +87,7 @@
                                 },
                                 {
                                     "tag" : "div",
-                                    "id" : "button_product",
+                                    "id" : "button_list",
                                     "attributes": {
                                         "class" : "col text-center",
                                         "onclick" : "fnc_set_title('Lista', 'title')"
@@ -96,7 +96,7 @@
                                 },
                                 {
                                     "tag" : "div",
-                                    "id" : "button_list",
+                                    "id" : "button_customer",
                                     "attributes": {
                                         "class" : "col text-center",
                                         "onclick" : "fnc_set_title('Usuarios', 'title')"
@@ -116,16 +116,6 @@
                         }
                     ],
                     "connections" : {
-                        "filters" : {
-                            "execute" : false,
-                            "host" : "http://localhost:8080/jsonpage/demo/filters.json",
-                            "valid" : true,
-                            "base" : {},
-                            "parameters" : {
-                                "paramsumo" : ""
-                            },
-                            "data" : []
-                        },
                         "status" : {
                             "execute" : false,
                             "host" : "http://localhost:8080/jsonpage/pages/status.json",
@@ -153,14 +143,34 @@
                             },
                             "data" : []
                         },
-                        "list_custom" : {
+                        "customer" : {
                             "execute" : false,
-                            "host" : "http://localhost:8080/jsonpage/demo/data/list_custom.json",
+                            "host" : "http://localhost:8080/jsonpage/pages/customer.json",
                             "valid" : true,
                             "base" : {},
                             "parameters" : {},
                             "data" : [],
                             "components" : []
+                        },
+                        "list_customer" : {
+                            "execute" : false,
+                            "host" : "http://localhost:8080/jsonpage/demo/data/list_customer.json",
+                            "valid" : true,
+                            "database" : true,
+                            "base" : {},
+                            "parameters" : {},
+                            "data" : [],
+                            "components" : []
+                        },
+                        "lists_items" : {
+                            "execute" : true,
+                            "host" : "http://localhost:8080/jsonpage/demo/data/list_items.json",
+                            "valid" : true,
+                            "database" : true,
+                            "base" : {},
+                            "parameters" : {},
+                            "data" : [],
+                            "components" : ["lists_items"]
                         }
                     },
                     "components":{                        
@@ -193,28 +203,28 @@
                             },
                             "title" : ""
                         },
-                        "product" : {
-                            "layout": "button_product",
+                        "list" : {
+                            "layout": "button_list",
                             "type" : "button",
                             "display" : "material",
                             "library" : "layout",
                             "data" : "list",
                             "options" : {
-                                "value" : "product",
+                                "value" : "list",
                                 "title" : "Producto",
                                 "icon" : "verified",
                                 "dom" : "body"
                             },
                             "title" : ""
                         },
-                        "list" : {
-                            "layout": "button_list",
+                        "customer" : {
+                            "layout": "button_customer",
                             "type" : "button",
                             "display" : "material",
                             "library" : "layout",
-                            "data" : "status",
+                            "data" : "customer",
                             "options" : {
-                                "value" : "list",
+                                "value" : "customer",
                                 "title" : "Lista",
                                 "icon" : "diversity_3",
                                 "dom" : "body"

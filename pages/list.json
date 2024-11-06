@@ -2,55 +2,57 @@
     "layouts":[
         {
             "tag" : "div",
-            "id" : "list_search",
+            "id" : "lists_filters",
             "title" : "",
             "attributes": {
                 "class" : "row",
-                "style" : "margin:5px; padding:10px;"
+                "style" : "margin: 10px;"
             },
             "sublayouts":[
                 {
-                    "tag" : "label",
-                    "id" : "list_search_label",
-                    "html" : "Buscar",
-                    "attributes": {
-                        "class" : "col-sm-2 col-form-label col-form-label-lg"
-                    },
-                    "sublayouts":[
-                    ]
-                },
-                {
                     "tag" : "div",
-                    "id" : "list_search_div",
+                    "id" : "div_lists_search_list",
                     "title" : "",
                     "attributes": {
-                        "class" : "col-sm-10"
+                        "class" : "col"
                     },
                     "sublayouts":[
                         {
                             "tag" : "input",
-                            "id" : "list_search_div",
+                            "id" : "lists_search_list_body",
                             "title" : "",
                             "attributes": {
                                 "class" : "form-control form-control-lg",
-                                "type":"email",
-                                "placeholder":"Codigo o Nombre"
+                                "type":"text",
+                                "placeholder":"Codigo o Nombre",
+                                "onkeyup":"fnc_filter_input_select_onchange('lists_items', 'lists_search_list_body', 'lists_search_select_body', ['name','code'],'status')"
+                            },
+                            "sublayouts":[
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag" : "div",
+                    "id" : "div_lists_search_select",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "col"
+                    },
+                    "sublayouts":[
+                        {
+                            "tag" : "select",
+                            "id" : "lists_search_select_body",
+                            "html" : "<option value='all'>Todos</option><option value='new'>Nuevos</option><option value='down'>Bajaron</option><option value='up'>Subieron</option>",
+                            "attributes": {
+                                "class" : "form-control form-control-lg",
+                                "onchange":"fnc_filter_input_select_onchange('lists_items', 'lists_search_list_body', 'lists_search_select_body', ['name','code'],'status')"
                             },
                             "sublayouts":[
                             ]
                         }
                     ]
                 }
-            ]
-        },
-        {
-            "tag" : "div",
-            "id" : "lists_items_filters",
-            "title" : "",
-            "attributes": {
-                "class" : ""
-            },
-            "sublayouts":[
             ]
         },
         {
@@ -69,6 +71,7 @@
             "execute" : true,
             "host" : "http://localhost:8080/jsonpage/demo/data/list_items.json",
             "valid" : true,
+            "database" : true,
             "base" : {},
             "parameters" : {},
             "data" : [],
