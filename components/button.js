@@ -66,15 +66,18 @@ function fnc_action_layout(namespace, item, data, carryOn){
     let dom = component.options.dom == undefined ? 'body' : component.options.dom;
     let value = component.options.value == undefined ? 'valid' : component.options.value;
 
-    $('#'+dom).html('');    
+    $('#'+dom).html(''); 
 
     if(connections, connections[component.data]['data'].length == 0){
         fnc_get_data(component.data);
         connections = Object.assign({}, connections, connections[component.data]['data'].connections);
         components = Object.assign({}, components, connections[component.data]['data'].components);
+        fnc_create_layout(connections[component.data]['data'].layouts, dom); 
+        fnc_load_libraries(connections[component.data]['data']['libraries']);
+    }else{
+        fnc_create_layout(connections[component.data]['data'].layouts, dom); 
     }
-
-    fnc_create_layout(connections[component.data]['data'].layouts, dom);
+    
     components[item].active = Object.keys(connections[component.data]['data'].connections);
 
     fnc_load_components_head('fnc_execute_action("'+item+'", "'+value+'")');

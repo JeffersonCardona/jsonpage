@@ -22,6 +22,7 @@ function fnc_load_connections(parameters = {}){
 }
 
 function fnc_get_data(cnx){
+
     if(connections[cnx]['database'] && database[cnx] != undefined ){
         if(connections[cnx]['filters'] != undefined){
             let data = [];
@@ -73,7 +74,11 @@ function fnc_get_data(cnx){
             connections[cnx]['data'] = {};
             fnc_log_fail('fnc_get_data', jqXHR, cnx);
         });
-    }    
+    }
+
+    if(connections[cnx]['function'] != undefined){        
+        eval(connections[cnx]['function']);
+    }
 }
 
 function fnc_validate_connection(connection){

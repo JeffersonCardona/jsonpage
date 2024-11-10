@@ -1,6 +1,6 @@
 [
-    { "class" : "calendar_day", "code" : "day", "title" : "Rutas", "subtitle" : "Pedido total", "value" : 1500 },
-    { "class" : "calendar_range", "code" : "week", "title" : "Ultima semana", "subtitle" : "Pedido total", "value" : 5000 },
-    { "class" : "calendar_month", "code" : "month", "title" : "Mes actual", "subtitle" : "Pedido total", "value" : 18000 },
-    { "class" : "calendar_before_month", "code" : "defore_month", "title" : "Mes anterior", "subtitle" : "Pedido total", "value" : 16000 }
+    { "class" : "icon_calendar_day", "code" : "day", "title" : "Rutas", "subtitle" : "Pedido total", "value" : 1500 },
+    { "class" : "icon_calendar_range", "code" : "week", "title" : "Ultima semana", "subtitle" : "Pedido total", "value" : 5000 },
+    { "class" : "icon_calendar_month", "code" : "month", "title" : "Mes actual", "subtitle" : "Pedido total", "value" : 18000 },
+    { "class" : "icon_calendar_before_month", "code" : "defore_month", "title" : "Mes anterior", "subtitle" : "Pedido total", "value" : 16000 }
 ]

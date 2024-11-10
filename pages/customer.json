@@ -25,7 +25,7 @@
                                 "class" : "form-control form-control-lg",
                                 "type":"text",
                                 "placeholder":"Codigo o Nombre",
-                                "onkeyup":"fnc_filter_input_select_onchange('customer_list', 'customer_search_list_body', 'customer_search_select_body', ['name','code'],'status')"
+                                "onkeyup":"fnc_filter_input_select_onchange('customer_list', 'customer_search_list_body', 'customer_search_select_body', ['name','code'],'city')"
                             },
                             "sublayouts":[
                             ]
@@ -43,10 +43,10 @@
                         {
                             "tag" : "select",
                             "id" : "customer_search_select_body",
-                            "html" : "<option value='all'>Todas</option><option value='active'>Activas</option><option value='closed'>Cerradas</option>",
+                            "html" : "",
                             "attributes": {
                                 "class" : "form-control form-control-lg",
-                                "onchange":"fnc_filter_input_select_onchange('customer_list', 'customer_search_list_body', 'customer_search_select_body', ['name','code'],'status')"
+                                "onchange":"fnc_filter_input_select_onchange('customer_list', 'customer_search_list_body', 'customer_search_select_body', ['name','code'],'city')"
                             },
                             "sublayouts":[
                             ]
@@ -258,12 +258,12 @@
             "valid" : true,
             "database" : true,
             "filters" : {
-                "status" : "active"
             },
             "base" : {},
             "parameters" : {},
             "data" : [],
-            "components" : ["customer_list"]
+            "components" : ["customer_list"],
+            "function" : "fnc_customer_load_select_options()"
         },
         "customer_items" : {
             "execute" : false,
@@ -301,7 +301,7 @@
             "data" : "customer_list",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_customer_show_close($index)''>Cerrar</a></li></ul></div></div>"
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body icon $class'></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name ( $point_name )</h5><p class='card-text'><small class='text-body-secondary'> $city $address </small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_customer_show_close($index)''>Cerrar</a></li></ul></div></div>"
             },
             "parameters" : [],
             "active" : [],
@@ -320,5 +320,11 @@
             "active" : [],
             "title" : ""
         }
-    }
+    },
+    "libraries" : [
+        {
+            "type" : "script",
+            "source" : "js/customer_page.js"
+        }
+    ]
 }

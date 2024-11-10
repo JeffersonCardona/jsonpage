@@ -1,87 +1,3 @@
-.item_up_red {
-    background-image: url(../images/arrow_circle_up_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #9e1818;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.item_down_green {
-    background-image: url(../images/enable_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #42d824;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.item_start {
-    background-image: url(../images/grade_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #189e2a;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.item_equals {
-    background-image: url(../images/swap_horizontal_circle_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #788cff;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.new_release {
-    background-image: url(../images/new_releases_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #f8e913;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon_add {
-    background-image: url(../images/add_circle_45_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: rgba(255,193,7,1);
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .icon_floating_bottom {
     position: fixed;
     bottom: 80px;
@@ -90,11 +6,7 @@
     align-items: center;
 }
 
-.calendar_month {
-    background-image: url(../images/calendar_month_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #000000;
+.icon_size_45_white{
     color: white;
     border-radius: 50%;
     width: 48px;
@@ -102,60 +14,70 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.calendar_day {
-    background-image: url(../images/event_45dp_white.svg);
     background-repeat: no-repeat;
     left: 20px;
-    background-color: #000000;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.calendar_before_month {
-    background-image: url(../images/event_repeat_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #000000;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.calendar_range {
-    background-image: url(../images/date_range_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
-    background-color: #000000;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.dollar_green {
-    background-image: url(../images/paid_45dp_white.svg);
-    background-repeat: no-repeat;
-    left: 20px;
+.icon_green {
     background-color: #51ca00;
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.icon_orange {
+    background-color: rgba(255,193,7,1);
+}
+
+.icon_yellow {
+    background-color: #f8e913;
+}
+
+.icon_blue {
+    background-color: #788cff;
+}
+
+.icon_red {
+    background-color: #9e1818;
+}
+
+.icon_calendar_month {
+    background-image: url(../images/calendar_month_45dp_white.svg);
+}
+
+.icon_calendar_day {
+    background-image: url(../images/event_45dp_white.svg);
+}
+
+.icon_calendar_before_month {
+    background-image: url(../images/event_repeat_45dp_white.svg);
+}
+
+.icon_calendar_range {
+    background-image: url(../images/date_range_45dp_white.svg);
+}
+
+.icon_dollar {
+    background-image: url(../images/paid_45dp_white.svg);
+}
+
+.icon_item_down {
+    background-image: url(../images/enable_45dp_white.svg);
+}
+
+.icon_item_start {
+    background-image: url(../images/grade_45dp_white.svg);
+}
+
+.icon_item_equals {
+    background-image: url(../images/swap_horizontal_circle_45dp_white.svg);
+}
+
+.icon_new_release {
+    background-image: url(../images/new_releases_45dp_white.svg);
+}
+
+.icon_add {
+    background-image: url(../images/add_circle_45_white.svg);
+}
+
+.icon_item_up {
+    background-image: url(../images/arrow_circle_up_45dp_white.svg);
 }

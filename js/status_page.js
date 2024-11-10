@@ -14,7 +14,7 @@ function fnc_status_push(){
 
     let input_search = document.getElementById('status_search_custom');
     let inputHandler = function(e) {
-        let cnx = 'list_customer';
+        let cnx = 'customer_list';
         let value = document.getElementById('status_search_custom').value;
 
         fnc_load_database_from_connection(cnx, cnx);
@@ -29,16 +29,12 @@ function fnc_status_push(){
         }        
     }
 
-    $('#status_search_custom').on('change keydown paste input', function(){
-        
-    });
-
     input_search.addEventListener('input', inputHandler);
     input_search.addEventListener('propertychange', inputHandler); 
 }
 
 function fnc_add_status(index){
-    let db = 'list_customer';
+    let db = 'customer_list';
     let cnx='status_list';
     let selected = connections[db].data[index];
     let dataFormat = dateFormat("es-ES", { "hour": "2-digit", "minute": "2-digit" });

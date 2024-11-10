@@ -39,11 +39,17 @@
             "data" : "lists_reports",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0' style='cursor:pointer;' onclick='fnc_report_active($index)'><div class='col-md-1 card-body'>  <div class='icon $class'></div>  <p class='card-text'></p></div><div class='col-md-11'>  <div class='card-body'><h5 class='card-title'>$title</h5><p class='card-text'><small class='text-body-secondary'> $subtitle : $value</small></p>  </div></div>"
+                "template" : "<div class='row g-0' style='cursor:pointer;' onclick='fnc_report_active($index)'><div class='col-md-1 card-body'>  <div class='icon icon_blue icon_size_45_white $class'></div>  <p class='card-text'></p></div><div class='col-md-11'>  <div class='card-body'><h5 class='card-title'>$title</h5><p class='card-text'><small class='text-body-secondary'> $subtitle : $value</small></p>  </div></div>"
             },
             "parameters" : [],
             "active" : [],
             "title" : ""
         }
-    }
+    },
+    "libraries" : [
+        {
+            "type" : "script",
+            "source" : "js/report_page.js"
+        }
+    ]
 }

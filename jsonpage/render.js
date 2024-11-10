@@ -100,3 +100,25 @@ function fnc_load_component(item){
         eval(types_components[type].function_load+'("'+ item +'")');
     }
 }
+
+// Function with permission to add options in a tag select from connection data and field
+function fnc_dom_options_select_search(cnx, field, key, dom, all=false){
+    let options = [];
+    let title = '';
+
+    for(let i in connections[cnx].data){
+        if(!options.includes(connections[cnx].data[i][field])){
+            options.push(connections[cnx].data[i][field]);
+        }
+    }
+
+    if(all){
+        title = dictionary[key+'.all'] == undefined ? 'All' : dictionary[key+'.all'];
+        $('#'+dom).append('<option value="all">'+title+'</option>');
+    }
+
+    for(let i in options){
+        title = dictionary[key+'.'+options[i]] == undefined ? options[i] : dictionary[key+'.'+options[i]];
+        $('#'+dom).append('<option value="'+options[i]+'">'+title+'</option>');
+    }
+}

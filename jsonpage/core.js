@@ -20,12 +20,17 @@ function load_start_jsonpage(page, dom){
     if(load_page){
       fnc_create_components()
     }
+
     // Load files
-    if(page['libraries'] != undefined && page.libraries.length > 0){
-      for(let i in page.libraries){
-        let item = fnc_load_library(page.libraries[i]);
-      }
+    fnc_load_libraries(page['libraries']);
+}
+
+function fnc_load_libraries(libraries){
+  if(libraries != undefined && libraries.length > 0){
+    for(let i in libraries){
+      let item = fnc_load_library(libraries[i]);
     }
+  }
 }
 
 function fnc_load_components_head(fnc){
