@@ -71,7 +71,7 @@
             "title" : "",
             "html" : "",
             "attributes": {
-                "class": "icon_add icon_floating_bottom",
+                "class": "icon_orange icon_size_45_white icon_add icon_floating_bottom",
                 "style": "cursor: pointer;",
                 "data-bs-toggle" : "modal",
                 "data-bs-target" : "#modalpushstatus"
@@ -82,7 +82,7 @@
         },
         {
             "tag" : "div",
-            "id" : "modalpushstatus",
+            "id" : "modal_customer_disabled",
             "title" : "",
             "html" : "",
             "attributes": {
@@ -90,114 +90,13 @@
                 "data-bs-backdrop":"static" ,
                 "data-bs-keyboard":"false",
                 "tabindex":"-1",
-                "aria-labelledby":"modalpushstatusLabel",
-                "aria-hidden":"true",
-                "onclick" : "fnc_customer_push()"
-            },
-            "sublayouts":[
-                {
-                    "tag" : "div",
-                    "id" : "modalpushcustomer_main",
-                    "title" : "",
-                    "attributes": {
-                        "class" : "modal-dialog modal-lg"
-                    },
-                    "sublayouts":[
-                        {
-                            "tag" : "div",
-                            "id" : "modalpushcustomer_content",
-                            "title" : "",
-                            "attributes": {
-                                "class" : "modal-content"
-                            },
-                            "sublayouts":[
-                                {
-                                    "tag" : "div",
-                                    "id" : "modalpushcustomer_header",
-                                    "title" : "",
-                                    "html" : "<h1 class='modal-title fs-5' id='modalpushcustomer_title'>Ruta nueva</h1><button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>",
-                                    "attributes": {
-                                        "class" : "modal-header"
-                                    },
-                                    "sublayouts":[
-                                    ]
-                                },
-                                {
-                                    "tag" : "div",
-                                    "id" : "modalpushcustomer_body",
-                                    "title" : "",
-                                    "attributes": {
-                                        "class" : "modal-body row"
-                                    },
-                                    "sublayouts":[
-                                        {
-                                            "tag" : "label",
-                                            "id" : "list_search_label",
-                                            "html" : "Buscar",
-                                            "attributes": {
-                                                "class" : "col-sm-2 col-form-label col-form-label-lg"
-                                            },
-                                            "sublayouts":[
-                                            ]
-                                        },
-                                        {
-                                            "tag" : "div",
-                                            "id" : "list_search_div",
-                                            "title" : "",
-                                            "attributes": {
-                                                "class" : "col-sm-10",
-                                                "style" : "margin-bottom: 10px;"
-                                            },
-                                            "sublayouts":[
-                                                {
-                                                    "tag" : "input",
-                                                    "id" : "customer_search_custom",
-                                                    "title" : "",
-                                                    "attributes": {
-                                                        "class" : "form-control form-control-lg",
-                                                        "type":"email",
-                                                        "placeholder":"Codigo o Nombre"
-                                                    },
-                                                    "sublayouts":[
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "tag" : "div",
-                                            "id" : "customer_search_list",
-                                            "html" : "<div class='col-form-label col-form-label-lg' style='text-align: center;'>Digitar para ver lista</div>",
-                                            "attributes": {
-                                                "class" : "col-sm-12"
-                                            },
-                                            "sublayouts":[
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "tag" : "div",
-            "id" : "modal_customer_cancel",
-            "title" : "",
-            "html" : "",
-            "attributes": {
-                "class":"modal fade",
-                "data-bs-backdrop":"static" ,
-                "data-bs-keyboard":"false",
-                "tabindex":"-1",
-                "aria-labelledby":"modal_customer_cancel",
+                "aria-labelledby":"modal_customer_disabled",
                 "aria-hidden":"true"
             },
             "sublayouts":[
                 {
                     "tag" : "div",
-                    "id" : "modal_customer_cancel_main",
+                    "id" : "modal_customer_disabled_main",
                     "title" : "",
                     "attributes": {
                         "class" : "modal-dialog modal-lg"
@@ -205,7 +104,7 @@
                     "sublayouts":[
                         {
                             "tag" : "div",
-                            "id" : "modal_customer_cancel_content",
+                            "id" : "modal_customer_disabled_content",
                             "title" : "",
                             "attributes": {
                                 "class" : "modal-content"
@@ -213,9 +112,9 @@
                             "sublayouts":[
                                 {
                                     "tag" : "div",
-                                    "id" : "modal_customer_cancel_header",
+                                    "id" : "modal_customer_disabled_header",
                                     "title" : "",
-                                    "html" : "<h1 class='modal-title fs-5' id='modal_customer_cancel_title'>Cerrar ruta</h1><button type='button' id='pg_customer_close_cancel' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>",
+                                    "html" : "<h1 class='modal-title fs-5' id='modal_customer_disabled_title'>Deshabilitar cliente</h1><button type='button' id='pg_customer_close_cancel' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>",
                                     "attributes": {
                                         "class" : "modal-header"
                                     },
@@ -224,9 +123,9 @@
                                 },
                                 {
                                     "tag" : "div",
-                                    "id" : "modal_customer_cancel_body",
+                                    "id" : "modal_customer_disabled_body",
                                     "title" : "",
-                                    "html" : "<h6 style='margin-bottom:10px;' >Desea cerrar la ruta <b id='modal_customer_cancel_title_item'></b></h6>",
+                                    "html" : "<h6 style='margin-bottom:10px;' >Desea desactivar el cliente <b id='modal_customer_disabled_title_item'></b> del punto de venta <b id='modal_customer_disabled_point'></b></h6><div class='form-group'><label for='exampleFormControlTextarea1'>Observacion</label><textarea id='modal_customer_disabled_textarea' class='form-control' id='exampleFormControlTextarea1' rows='3'></textarea></div>",
                                     "attributes": {
                                         "class" : "modal-body"
                                     },
@@ -235,9 +134,9 @@
                                 },
                                 {
                                     "tag" : "div",
-                                    "id" : "modal_customer_cancel_footer",
+                                    "id" : "modal_customer_disabled_footer",
                                     "title" : "",
-                                    "html" : "<button type='button' class='btn-sm btn btn-secondary col-md-3' data-bs-dismiss='modal'>NO</button><button type='button' style='margin-left: 5px;' class='btn-sm btn btn-primary col-md-3' onclick='fnc_pg_customer_close()'>SI</button>",
+                                    "html" : "<button type='button' class='btn-sm btn btn-secondary col-md-3' data-bs-dismiss='modal'>NO</button><button type='button' style='margin-left: 5px;' class='btn-sm btn btn-primary col-md-3' onclick='fnc_pg_customer_disabled()'>SI</button>",
                                     "attributes": {
                                         "class" : "modal-footer"
                                     },
@@ -262,8 +161,7 @@
             "base" : {},
             "parameters" : {},
             "data" : [],
-            "components" : ["customer_list"],
-            "function" : "fnc_customer_load_select_options()"
+            "components" : ["customer_list"]
         },
         "customer_items" : {
             "execute" : false,
@@ -301,7 +199,7 @@
             "data" : "customer_list",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body icon $class'></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name ( $point_name )</h5><p class='card-text'><small class='text-body-secondary'> $city $address </small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_customer_show_close($index)''>Cerrar</a></li></ul></div></div>"
+                "template" : "<div class='row g-0'><div class='col-md-1 card-body'><div class='icon icon_size_45_white icon_green $class'></div></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name ( $point_name )</h5><p class='card-text'><small class='text-body-secondary'> $city $address </small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_customer(0, $index)'>Resumen</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_customer_disabled($index)''>Desactivar</a></li></ul></div></div>"
             },
             "parameters" : [],
             "active" : [],
@@ -326,5 +224,8 @@
             "type" : "script",
             "source" : "js/customer_page.js"
         }
+    ],
+    "execute" : [
+        "fnc_customer_load_select_options()"
     ]
 }

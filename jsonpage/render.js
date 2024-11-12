@@ -106,9 +106,9 @@ function fnc_dom_options_select_search(cnx, field, key, dom, all=false){
     let options = [];
     let title = '';
 
-    for(let i in connections[cnx].data){
-        if(!options.includes(connections[cnx].data[i][field])){
-            options.push(connections[cnx].data[i][field]);
+    for(let i in database[cnx].data){
+        if(!options.includes(database[cnx].data[i][field])){
+            options.push(database[cnx].data[i][field]);
         }
     }
 

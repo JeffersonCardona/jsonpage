@@ -22,9 +22,9 @@ function fnc_load_connections(parameters = {}){
 }
 
 function fnc_get_data(cnx){
-
     if(connections[cnx]['database'] && database[cnx] != undefined ){
-        if(connections[cnx]['filters'] != undefined){
+
+        if(connections[cnx]['filters'] != undefined && Object.keys(connections[cnx]['filters']).length > 0){
             let data = [];
             for(let i in connections[cnx]['data']){
                 let insert = true;
@@ -117,32 +117,19 @@ function fnc_carryOn_data(fnc, component, connection){
     return carryOn;
 }
 
-function fnc_filter_input_select_onchange(cnx, input_search, select_search, filters, filter_select){
+function fnc_load_parameters_connections(connection, parameters){
+    connections[connection].parameters = $.extend(connections[connection].parameters, parameters);
+
+    fnc_validate_connection(connection);
     
-    let search_text = document.getElementById(input_search).value;
-    let data = [];
-    if(search_text.length > 0){
-        data = fnc_get_filter_database(cnx, filters, search_text);
-    }
-
-    if(data.length == 0){
-        data = jQuery.extend(true, {},database[cnx].data);
-    }
-
-    let r_data = [];
-    search_text = document.getElementById(select_search).value;
-
-    if(search_text != 'all'){
-        for(let i in data){
-            if(data[i][filter_select] == search_text){
-                r_data.push(data[i]);
-            }
-        }
+    if(connections[connection]['valid'] == true && connections[connection]['execute'] == true){
+        fnc_get_data(connection);
     }else{
-        r_data = data;
+        connections[connection]['data'] = [];
     }
-    
-    connections[cnx].components = [cnx]; 
-    connections[cnx].data = r_data;
-    fnc_activate_components(cnx);
+
+    // Load depency connections
+    for(let i in connections[connection]['components']){
+        fnc_load_component(connections[connection]['components'][i]);
+    }
 }

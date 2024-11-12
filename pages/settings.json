@@ -1,0 +1,87 @@
+{
+    "layouts" : [
+        {
+            "tag" : "div",
+            "id" : "user_image",
+            "title" : "",
+            "attributes": {
+                "style" : "width: -webkit-fill-available;margin:5px;text-align: -webkit-center;"
+            },
+            "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "user_image_icon",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "icon_size_100_white icon_account_circle_100 icon_blue",
+                        "style" : "margin:5px; text-align: -webkit-center;"
+                    },
+                    "sublayouts":[
+                    ]
+                }
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "user_details",
+            "title" : "",
+            "attributes": {
+            },
+            "sublayouts":[
+
+            ]
+        },
+        {
+            "tag" : "div",
+            "id" : "user_settings",
+            "title" : "",
+            "attributes": {
+            },
+            "sublayouts":[
+
+            ]
+        }
+    ],
+    "connections" : { 
+        "info_details" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/info_details.json",
+            "database" : true,
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : []
+        },
+        "user_settings" : {
+            "execute" : true,
+            "host" : "http://localhost:8080/jsonpage/demo/data/user_settings.json",
+            "database" : true,
+            "valid" : true,
+            "base" : {},
+            "parameters" : {},
+            "data" : [],
+            "components" : ["user_settings"]
+        }
+    },
+    "components":{
+        "user_settings" : {
+            "layout": "user_settings",
+            "type" : "lists",
+            "data" : "user_settings",
+            "configuration" : "",
+            "options" : {
+                "template" : "<div class='row g-0' style='cursor:pointer;' onclick='fnc_report_active($index)'><div class='col-md-1 card-body'>  <div class='icon icon_blue icon_size_45_white $class'></div>  <p class='card-text'></p></div><div class='col-md-11'>  <div class='card-body'><h5 class='card-title'>$title</h5><p class='card-text'><small class='text-body-secondary'> $subtitle : $update_last</small></p>  </div></div>"
+            },
+            "parameters" : [],
+            "active" : [],
+            "title" : ""
+        }
+    },
+    "libraries" : [
+        {
+            "type" : "script",
+            "source" : "js/report_page.js"
+        }
+    ]
+}

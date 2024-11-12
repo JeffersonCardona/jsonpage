@@ -16,7 +16,7 @@ var libraries_loaded = {};
 var database = {};
 var components_load = {};
 var load_page = false;
-const type_not_package = ["layout", "lists", "cards"];
+const type_not_package = ["layout", "lists", "cards", "default"];
 const types_components = {
         "button" : {
                 "function_load" : "fnc_component_button",

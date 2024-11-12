@@ -68,20 +68,3 @@ function fnc_execute_action(component, value){
         fnc_load_parameters_connections(components[component].active[cnx], parameters);
     }
 }
-
-function fnc_load_parameters_connections(connection, parameters){
-    connections[connection].parameters = $.extend(connections[connection].parameters, parameters);
-
-    fnc_validate_connection(connection);
-    
-    if(connections[connection]['valid'] == true && connections[connection]['execute'] == true){
-        fnc_get_data(connection);
-    }else{
-        connections[connection]['data'] = [];
-    }
-
-    // Load depency connections
-    for(let i in connections[connection]['components']){
-        fnc_load_component(connections[connection]['components'][i]);
-    }
-}

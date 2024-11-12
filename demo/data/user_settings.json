@@ -1,0 +1,4 @@
+[
+    { "class" : "icon_badge", "code" : "update_user", "title" : "Datos personales", "subtitle" : "Ultima actualizacion", "update_last" : "24/10/2024 08:45" },
+    { "class" : "icon_password", "code" : "update_password", "title" : "Cambio contraseña", "subtitle" : "Ultima actualizacion", "update_last" : "24/10/2024 08:45" }
+]

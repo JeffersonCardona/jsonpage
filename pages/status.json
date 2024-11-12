@@ -311,7 +311,7 @@
             "layout": "status_search_list",
             "type" : "lists",
             "library" : "cards",
-            "data" : "customer_list",
+            "data" : "search_list",
             "configuration" : "",
             "options" : {
                 "template" : "<div class='row g-0'><div class='col-md-10'> <div class='card-body'><h5 class='card-title'>$point_name</h5><p class='card-text'><small class='text-body-secondary'> $name : $address</small></p>  </div></div><div class='col-md-2 py-3' style='cursor: pointer;'><div class='icon_orange icon_size_45_white icon_add' onclick='fnc_add_status($index)'> </div></div></div>"

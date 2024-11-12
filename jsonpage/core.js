@@ -139,3 +139,10 @@ function dateFormat(format, options) {
   let now = new Date();
   return new Intl.DateTimeFormat(format, options).format(now);
 }
+
+function fnc_execute_function(fnc){
+  let f = fnc.replace(/\(.*/,'');
+  if(window[f] != undefined){
+    eval(fnc);
+  }
+}

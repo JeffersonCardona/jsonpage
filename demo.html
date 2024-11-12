@@ -40,7 +40,7 @@
                                     "html" : "titulo",
                                     "attributes": {
                                         "class" : "fs-3",
-                                        "style" : "text-align: center; width: -webkit-fill-available;"
+                                        "style" : "text-align: center; width: -webkit-fill-available;width: -moz-available;"
                                     },
                                     "sublayouts":[]
                                 }
@@ -105,7 +105,7 @@
                                 },
                                 {
                                     "tag" : "div",
-                                    "id" : "button_setting",
+                                    "id" : "button_settings",
                                     "attributes": {
                                         "class" : "col text-center",
                                         "onclick" : "fnc_set_title('Configuracion', 'title')"
@@ -157,6 +157,25 @@
                             "host" : "http://localhost:8080/jsonpage/demo/data/list_customer.json",
                             "valid" : true,
                             "database" : true,
+                            "base" : {},
+                            "parameters" : {},
+                            "data" : [],
+                            "components" : []
+                        },
+                        "settings" : {
+                            "execute" : false,
+                            "host" : "http://localhost:8080/jsonpage/pages/settings.json",
+                            "valid" : true,
+                            "database" : true,
+                            "base" : {},
+                            "parameters" : {},
+                            "data" : [],
+                            "components" : []
+                        },
+                        "search_list" : {
+                            "execute" : false,
+                            "host" : "",
+                            "valid" : true,
                             "base" : {},
                             "parameters" : {},
                             "data" : [],
@@ -227,18 +246,19 @@
                                 "value" : "customer",
                                 "title" : "Lista",
                                 "icon" : "diversity_3",
-                                "dom" : "body"
+                                "dom" : "body",
+                                "after_click" : ['fnc_customer_load_select_options()']
                             },
                             "title" : ""
                         },
-                        "setting" : {
-                            "layout": "button_setting",
+                        "settings" : {
+                            "layout": "button_settings",
                             "type" : "button",
                             "display" : "material",
                             "library" : "layout",
-                            "data" : "status",
+                            "data" : "settings",
                             "options" : {
-                                "value" : "setting",
+                                "value" : "settings",
                                 "title" : "Configuracion",
                                 "icon" : "manage_accounts",
                                 "dom" : "body"

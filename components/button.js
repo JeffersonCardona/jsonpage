@@ -13,6 +13,7 @@ function fnc_component_button(item){
     const title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
     const library = component.library == undefined || component.library.length == 0 ? 'buttons' : component.library;
     const display = component.display == undefined || component.display.length == 0 ? 'buttons' : component.display;
+    const options = component.options == undefined || component.options.length == 0 ? {} : component.options;
     let carryOn = fnc_carryOn_data('fnc_component_button', item, component.data);
     let tag = 'button';
     let default_class = types_components[component.type].default_class;
@@ -31,7 +32,7 @@ function fnc_component_button(item){
     );
 
     if(display == 'material'){
-        let btn_i = '<i class="icon material-icons if-md py-2 d-none d-md-inline-block" title="'+ title +'" style="cursor: pointer;" >'+ component.options.icon +'</i>';
+        let btn_i = '<i class="icon material-icons if-md py-2 d-none d-md-inline-block" title="'+ title +'" style="cursor: pointer;" >'+ options.icon +'</i>';
         $('#'+namespace).append(btn_i); 
     }else  
     if( title.length > 0 ){
@@ -47,6 +48,12 @@ function fnc_component_button(item){
     $('#'+namespace ).on( "click", function() {
         let fnc_eval = 'fnc_action_'+library+'("'+ namespace +'","'+ item +'","'+ component.data +'", '+carryOn+')';
         fnc_validate_load_library(component.type, library, fnc_eval);
+
+        if(options['after_click'] != undefined && options.after_click.length > 0){
+            for(let i in options.after_click){
+                fnc_execute_function(options.after_click[i]);
+            }
+        }
     });
 
     if(component.options['default_click']){
@@ -79,7 +86,6 @@ function fnc_action_layout(namespace, item, data, carryOn){
     }
     
     components[item].active = Object.keys(connections[component.data]['data'].connections);
-
     fnc_load_components_head('fnc_execute_action("'+item+'", "'+value+'")');
     fnc_execute_action(item, value);
 }

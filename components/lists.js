@@ -29,13 +29,11 @@ function fnc_lists_default(namespace, item, connection, carryOn){
     let component = components[item];
     let data = connections[connection].data;
     let template = component.options.template == undefined ? 'label' : component.options.template;
-    $('#'+namespace).append('<ol id="'+namespace+'_ol" class="list-group list-group-numbered"></ol>');
+    let numbered = component.options.numbered == true ? 'list-group-numbered' : '';
+    $('#'+namespace).append('<ul id="'+namespace+'_ol" class="list-group '+numbered+'"></ul>');
 
     for(let i in data){
-        let row = '<li class="list-group-item">'+ template +'</li>';
-        for(let j in data[i]){
-            row.replace('$'+j, data[i][j]);
-        } 
+        let row = '<li class="list-group-item">'+ fnc_list_replace_keys(template, data[i], i) +'</li>';
         $('#'+namespace+'_ol').append(row);
     }
 
@@ -47,14 +45,20 @@ function fnc_lists_cards(namespace, item, connection, carryOn){
     let template = component.options.template == undefined ? 'label' : component.options.template;
 
     for(let i in data){
-        let row = "<div class='card' style='margin: 5px;' id='row_list_"+i+"'>"+ template +"</div>";
-        row = row.replaceAll("$index", i);
-
-        for(let j in data[i]){
-            row = row.replaceAll("$"+j, data[i][j]);
-        } 
-        
+        let row = "<div class='card' style='margin: 5px;' id='row_list_"+i+"'>"+ fnc_list_replace_keys(template, data[i], i) +"</div>"; 
         $('#'+namespace).append(row);
     }
 
+}
+
+function fnc_list_replace_keys(template, keys, index){
+    let return_row = template;    
+    return_row = return_row.replaceAll("$index", index);
+
+    for(let j in keys){
+        return_row = return_row.replaceAll("$"+j, keys[j]);
+    }
+
+    return return_row;
+    
 }

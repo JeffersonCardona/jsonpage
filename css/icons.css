@@ -18,6 +18,18 @@
     left: 20px;
 }
 
+.icon_size_100_white{
+    color: white;
+    border-radius: 50%;
+    width: 103px;
+    height: 103px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    left: 20px;
+}
+
 .icon_green {
     background-color: #51ca00;
 }
@@ -80,4 +92,28 @@
 
 .icon_item_up {
     background-image: url(../images/arrow_circle_up_45dp_white.svg);
+}
+
+.icon_store {
+    background-image: url(../images/store_45dp_white.svg);
+}
+
+.icon_store_front {
+    background-image: url(../images/storefront_45dp_white.svg);
+}
+
+.icon_badge {
+    background-image: url(../images/badge_44dp_white.svg);
+}
+
+.icon_password {
+    background-image: url(../images/password_45dp_white.svg);
+}
+
+.icon_account_circle {
+    background-image: url(../images/account_circle_45dp_white.svg);
+}
+
+.icon_account_circle_100 {
+    background-image: url(../images/account_circle_100dp_white.svg);
 }

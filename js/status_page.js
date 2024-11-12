@@ -14,12 +14,13 @@ function fnc_status_push(){
 
     let input_search = document.getElementById('status_search_custom');
     let inputHandler = function(e) {
-        let cnx = 'customer_list';
+        let db = 'customer_list';
+        let cnx = 'search_list';
         let value = document.getElementById('status_search_custom').value;
 
-        fnc_load_database_from_connection(cnx, cnx);
+        fnc_load_database_from_connection(db);
         if(value.length > 0){
-            connections[cnx].data = fnc_get_filter_database(cnx, ['code', 'name', 'point_name'], value);
+            connections[cnx].data = fnc_get_filter_database(db, ['code', 'name', 'point_name'], value);
             connections[cnx].components = ['status_search_list']; 
             fnc_activate_components(cnx);
         }else{
@@ -34,9 +35,8 @@ function fnc_status_push(){
 }
 
 function fnc_add_status(index){
-    let db = 'customer_list';
     let cnx='status_list';
-    let selected = connections[db].data[index];
+    let selected = connections['search_list'].data[index];
     let dataFormat = dateFormat("es-ES", { "hour": "2-digit", "minute": "2-digit" });
 
     let exist = fnc_exists_record(cnx, 'code', selected.code);
