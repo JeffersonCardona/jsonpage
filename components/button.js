@@ -18,7 +18,7 @@ function fnc_component_button(item){
     let tag = 'button';
     let default_class = types_components[component.type].default_class;
 
-    if(display == 'material'){
+    if(display == 'class'){
         tag = 'div';
         default_class = '';
     }
@@ -31,8 +31,8 @@ function fnc_component_button(item){
         component['attributes']
     );
 
-    if(display == 'material'){
-        let btn_i = '<i class="icon material-icons if-md py-2 d-none d-md-inline-block" title="'+ title +'" style="cursor: pointer;" >'+ options.icon +'</i>';
+    if(display == 'class'){
+        let btn_i = '<div id="icon_'+namespace+'" class="py-2 '+options.class+'" title="'+ title +'" style="cursor: pointer;" ></div>';
         $('#'+namespace).append(btn_i); 
     }else  
     if( title.length > 0 ){

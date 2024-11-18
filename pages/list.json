@@ -86,7 +86,7 @@
             "data" : "lists_items",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body' title='$status'>  <div class='icon icon_size_45_white $class'></div>  </div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Valor : $value</small></p>  </div></div>"
+                "template" : "<div class='row g-0'><div class='col-1 card-body' title='$status'>  <div class='icon icon_size_45_white $class'></div>  </div><div class='col-8'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Valor : $value</small></p>  </div></div> $actions </div>"
             },
             "parameters" : [],
             "active" : [],

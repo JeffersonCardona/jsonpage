@@ -26,8 +26,31 @@
             "id" : "user_details",
             "title" : "",
             "attributes": {
+                "style" : "text-align: center; width: -webkit-fill-available;width: -moz-available; margin-bottom: 20px;"
             },
             "sublayouts":[
+                {
+                    "tag" : "div",
+                    "id" : "user_email",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "fs-4"
+                    },
+                    "sublayouts":[
+        
+                    ]
+                },
+                {
+                    "tag" : "div",
+                    "id" : "user_phone",
+                    "title" : "",
+                    "attributes": {
+                        "class" : "fs-5"
+                    },
+                    "sublayouts":[
+        
+                    ]
+                }
 
             ]
         },
@@ -51,7 +74,8 @@
             "base" : {},
             "parameters" : {},
             "data" : [],
-            "components" : []
+            "components" : [],
+            "function" : ["fnc_settings_load_info()"]
         },
         "user_settings" : {
             "execute" : true,
@@ -71,7 +95,7 @@
             "data" : "user_settings",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0' style='cursor:pointer;' onclick='fnc_report_active($index)'><div class='col-md-1 card-body'>  <div class='icon icon_blue icon_size_45_white $class'></div>  <p class='card-text'></p></div><div class='col-md-11'>  <div class='card-body'><h5 class='card-title'>$title</h5><p class='card-text'><small class='text-body-secondary'> $subtitle : $update_last</small></p>  </div></div>"
+                "template" : "<div class='row g-0' style='cursor:pointer;' onclick='fnc_report_active($index)'><div class='col-1 card-body'>  </div>  <p class='card-text'></p></div><div class='col-11'>  <div class='card-body'><h5 class='card-title'>$title</h5><p class='card-text'><small class='text-body-secondary'> $subtitle : $update_last</small></p>  </div></div>"
             },
             "parameters" : [],
             "active" : [],
@@ -81,7 +105,7 @@
     "libraries" : [
         {
             "type" : "script",
-            "source" : "js/report_page.js"
+            "source" : "js/settings_page.js"
         }
     ]
 }

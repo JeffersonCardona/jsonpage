@@ -43,7 +43,7 @@
                         {
                             "tag" : "select",
                             "id" : "status_search_select_body",
-                            "html" : "<option value='all'>Todas</option><option value='active'>Activas</option><option value='closed'>Cerradas</option>",
+                            "html" : "<option value='active'>Activas</option><option value='closed'>Cerradas</option><option value='all'>Todas</option>",
                             "attributes": {
                                 "class" : "form-control form-control-lg",
                                 "onchange":"fnc_filter_input_select_onchange('status_list', 'status_search_list_body', 'status_search_select_body', ['name','code'],'status')"
@@ -71,7 +71,7 @@
             "title" : "",
             "html" : "",
             "attributes": {
-                "class": "icon_orange icon_size_45_white icon_add icon_floating_bottom",
+                "class": "icon_blue_dark icon_size_45_white icon_add icon_floating_bottom",
                 "style": "cursor: pointer;",
                 "data-bs-toggle" : "modal",
                 "data-bs-target" : "#modalpushstatus"
@@ -237,7 +237,7 @@
                                     "tag" : "div",
                                     "id" : "modal_status_cancel_footer",
                                     "title" : "",
-                                    "html" : "<button type='button' class='btn-sm btn btn-secondary col-md-3' data-bs-dismiss='modal'>NO</button><button type='button' style='margin-left: 5px;' class='btn-sm btn btn-primary col-md-3' onclick='fnc_pg_status_close()'>SI</button>",
+                                    "html" : "<button type='button' class='btn-sm btn btn-secondary col-3' data-bs-dismiss='modal'>NO</button><button type='button' style='margin-left: 5px;' class='btn-sm btn btn-primary col-3' onclick='fnc_pg_status_close()'>SI</button>",
                                     "attributes": {
                                         "class" : "modal-footer"
                                     },
@@ -301,7 +301,7 @@
             "data" : "status_list",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-1 card-body'>  <i class='icon material-icons'>$icon</i>  <p class='card-text'></p></div><div class='col-md-10'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-md-1 card-body dropdown'><button class='btn btn-warning dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_status_show_close($index)''>Cerrar</a></li></ul></div></div>"
+                "template" : "<div class='row g-0'><div class='col-1 card-body'>  <div class='$class d-flex justify-content-center'></div>  </div><div class='col-8'>  <div class='card-body'><h5 class='card-title'>$name</h5><p class='card-text'><small class='text-body-secondary'> Hora : $hour</small></p>  </div></div><div id='dropdown' class='col-1 card-body dropdown' style='text-align: center;' ><button class='btn btn-blue-dark dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'></button><ul class='dropdown-menu'><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(0, $index)'>Pedido</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(1, $index)'>Acionables</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_action_items_status(2, $index)'>Actualizar</a></li><li><a class='dropdown-item' style='cursor: pointer;' onclick='fnc_status_show_close($index)''>Cerrar</a></li></ul></div></div>"
             },
             "parameters" : [],
             "active" : [],
@@ -314,7 +314,7 @@
             "data" : "search_list",
             "configuration" : "",
             "options" : {
-                "template" : "<div class='row g-0'><div class='col-md-10'> <div class='card-body'><h5 class='card-title'>$point_name</h5><p class='card-text'><small class='text-body-secondary'> $name : $address</small></p>  </div></div><div class='col-md-2 py-3' style='cursor: pointer;'><div class='icon_orange icon_size_45_white icon_add' onclick='fnc_add_status($index)'> </div></div></div>"
+                "template" : "<div class='row g-0'><div class='col-10'> <div class='card-body'><h5 class='card-title'>$point_name</h5><p class='card-text'><small class='text-body-secondary'> $name : $address</small></p>  </div></div><div class='col-2 py-3' style='cursor: pointer;'><div class='icon_blue_dark icon_size_45_white icon_add' onclick='fnc_add_status($index)'> </div></div></div>"
             },
             "parameters" : [],
             "active" : [],

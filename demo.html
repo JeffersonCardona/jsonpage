@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="packages/jquery/jquery.min.js"></script>
         <script src="packages/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="packages/crypto/aes.js"></script>
@@ -31,7 +33,7 @@
                             "id" : "head",
                             "title" : "title.demo",
                             "attributes": {
-                                "class" : "toolbar bg-warning d-flex flex-column flex-md-row footer mt-auto py-3 navbar navbar-expand-lg bd-navbar sticky-top"
+                                "class" : "toolbar bg-banner d-flex flex-column flex-md-row footer mt-auto py-2 navbar navbar-expand-lg bd-navbar sticky-top"
                             },
                             "sublayouts":[
                                 {
@@ -53,7 +55,7 @@
                             "title" : "",
                             "attributes": {
                                 "class" : "",
-                                "style" : "padding-bottom : 70px;"
+                                "style" : "padding-bottom : 70px; overflow: auto;"
                             },
                             "sublayouts":[                                
                             ]
@@ -63,7 +65,7 @@
                             "id" : "footer",
                             "title" : "",
                             "attributes": {
-                                "class" : "toolbar bg-warning d-flex flex-column flex-md-row footer mt-auto py-3 sticky-bottom",
+                                "class" : "toolbar bg-banner d-flex footer mt-auto sticky-bottom g-0 row py-2",
                                 "style" : "position: fixed; bottom: 0; width: 100%;"
                             },                            
                             "sublayouts":[
@@ -196,74 +198,90 @@
                         "status" : {
                             "layout": "button_status",
                             "type" : "button",
-                            "display" : "material",
+                            "display" : "class",
                             "library" : "layout",
                             "data" : "status",
                             "options" : {
                                 "value" : "status",
                                 "title" : "estado",
-                                "icon" : "pending_actions",
+                                "class" : "icon_banner_white icon_pending_actions",
                                 "dom" : "body",
                                 "default_click": true
                             },
-                            "title" : ""
+                            "title" : "",
+                            "attributes" : {
+                                "style" : "text-align: -webkit-center;"
+                            }
                         },
                         "report" : {
                             "layout": "buttons_report",
                             "type" : "button",
-                            "display" : "material",
+                            "display" : "class",
                             "library" : "layout",
                             "data" : "report",
                             "options" : {
                                 "value" : "report",
                                 "title" : "informe",
-                                "icon" : "leaderboard",
+                                "class" : "icon_banner_white icon_leaderboard",
                                 "dom" : "body"
                             },
-                            "title" : ""
+                            "title" : "",
+                            "attributes" : {
+                                "style" : "text-align: -webkit-center;"
+                            }
                         },
                         "list" : {
                             "layout": "button_list",
                             "type" : "button",
-                            "display" : "material",
+                            "display" : "class",
                             "library" : "layout",
                             "data" : "list",
                             "options" : {
                                 "value" : "list",
                                 "title" : "Producto",
-                                "icon" : "verified",
+                                "class" : "icon_banner_white icon_verified",
                                 "dom" : "body"
                             },
-                            "title" : ""
+                            "title" : "",
+                            "attributes" : {
+                                "style" : "text-align: -webkit-center;"
+                            }
                         },
                         "customer" : {
                             "layout": "button_customer",
                             "type" : "button",
-                            "display" : "material",
+                            "display" : "class",
                             "library" : "layout",
                             "data" : "customer",
                             "options" : {
                                 "value" : "customer",
                                 "title" : "Lista",
-                                "icon" : "diversity_3",
+                                "class" : "icon_banner_white icon_diversity_3",
                                 "dom" : "body",
                                 "after_click" : ['fnc_customer_load_select_options()']
                             },
-                            "title" : ""
+                            "title" : "",
+                            "attributes" : {
+                                "style" : "text-align: -webkit-center;"
+                            }
                         },
                         "settings" : {
                             "layout": "button_settings",
                             "type" : "button",
-                            "display" : "material",
+                            "display" : "class",
                             "library" : "layout",
                             "data" : "settings",
                             "options" : {
                                 "value" : "settings",
                                 "title" : "Configuracion",
-                                "icon" : "manage_accounts",
-                                "dom" : "body"
+                                "class" : "icon_banner_white icon_manage_accounts",
+                                "dom" : "body",
+                                "after_click" : ['fnc_settings_load_info()']
                             },
-                            "title" : ""
+                            "title" : "",
+                            "attributes" : {
+                                "style" : "text-align: -webkit-center;"
+                            }
                         }
                     },
                     "databases" : {

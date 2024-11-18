@@ -53,11 +53,12 @@ function fnc_lists_cards(namespace, item, connection, carryOn){
 
 function fnc_list_replace_keys(template, keys, index){
     let return_row = template;    
-    return_row = return_row.replaceAll("$index", index);
 
     for(let j in keys){
         return_row = return_row.replaceAll("$"+j, keys[j]);
     }
+    
+    return_row = return_row.replaceAll("$index", index);
 
     return return_row;
     

@@ -18,6 +18,13 @@
     left: 20px;
 }
 
+.icon_banner_white {
+    color: white;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+}
+
 .icon_size_100_white{
     color: white;
     border-radius: 50%;
@@ -30,8 +37,14 @@
     left: 20px;
 }
 
+.bg-banner {
+    color: white;
+    --bs-bg-opacity: 1;
+    background-color: #4A628A;
+}
+
 .icon_green {
-    background-color: #51ca00;
+    background-color: #74d335;
 }
 
 .icon_orange {
@@ -39,15 +52,21 @@
 }
 
 .icon_yellow {
-    background-color: #f8e913;
+    background-color: #dfd10d;
 }
 
 .icon_blue {
-    background-color: #788cff;
+    --bs-bg-opacity: 1;
+    background-color: #7AB2D3;
+}
+
+.icon_blue_dark {
+    --bs-bg-opacity: 1;
+    background-color: #4A628A;
 }
 
 .icon_red {
-    background-color: #9e1818;
+    background-color: #cd0808;
 }
 
 .icon_calendar_month {
@@ -116,4 +135,41 @@
 
 .icon_account_circle_100 {
     background-image: url(../images/account_circle_100dp_white.svg);
+}
+
+.icon_pending_actions {
+    background-image: url(../images/pending_actions_45dp_white.svg);
+}
+
+.icon_leaderboard {
+    background-image: url(../images/leaderboard_44dp_white.svg);
+}
+
+.icon_verified {
+    background-image: url(../images/verified_44dp_white.svg);
+}
+
+.icon_diversity_3 {
+    background-image: url(../images/diversity_3_44dp_white.svg);
+}
+
+.icon_manage_accounts {
+    background-image: url(../images/manage_accounts_44dp_white.svg);
+}
+
+.btn-blue-dark {
+    --bs-btn-color: #39475e;
+    --bs-btn-bg: #7AB2D3;
+    --bs-btn-border-color: #7AB2D3;
+    --bs-btn-hover-color: #39475e;
+    --bs-btn-hover-bg: #B9E5E8;
+    --bs-btn-hover-border-color: 7AB2D3;
+    --bs-btn-focus-shadow-rgb: 217, 164, 6;
+    --bs-btn-active-color: #39475e;
+    --bs-btn-active-bg: #B9E5E8;
+    --bs-btn-active-border-color: 7AB2D3;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #39475e;
+    --bs-btn-disabled-bg: #B9E5E8;
+    --bs-btn-disabled-border-color: #B9E5E8;
 }
