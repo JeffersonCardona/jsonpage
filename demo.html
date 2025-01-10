@@ -33,16 +33,42 @@
                             "id" : "head",
                             "title" : "title.demo",
                             "attributes": {
-                                "class" : "toolbar bg-banner d-flex flex-column flex-md-row footer mt-auto py-2 navbar navbar-expand-lg bd-navbar sticky-top"
+                                "class" : "toolbar bg-banner navbar navbar-expand-lg bd-navbar sticky-top row"
                             },
                             "sublayouts":[
+                                {
+                                    "tag" : "div",
+                                    "id" : "arrow_back_div",
+                                    "attributes": {
+                                        "class" : "col",
+                                    },
+                                    "sublayouts":[
+                                            {
+                                            "tag" : "div",
+                                            "id" : "arrow_back",
+                                            "attributes": {
+                                                "class" : "col icon_banner_white icon_arrow_back",
+                                                "style" : "cursor: pointer;"
+                                            },
+                                            "sublayouts":[]
+                                        }
+                                    ]
+                                },
                                 {
                                     "tag" : "div",
                                     "id" : "title",
                                     "html" : "titulo",
                                     "attributes": {
-                                        "class" : "fs-3",
-                                        "style" : "text-align: center; width: -webkit-fill-available;width: -moz-available;"
+                                        "class" : "col fs-3",
+                                        "style" : "text-align: center;width: -moz-available;"
+                                    },
+                                    "sublayouts":[]
+                                },
+                                {
+                                    "tag" : "div",
+                                    "id" : "arrow_next",
+                                    "attributes": {
+                                        "class" : "col"
                                     },
                                     "sublayouts":[]
                                 }
@@ -292,6 +318,10 @@
     fnc_load_components_page();
     
                 load_start_jsonpage(page,'main');
+            });
+
+            $(window).on('beforeunload ',function() {
+                return 'Are you sure ?';
             });
         </script>
     </head>

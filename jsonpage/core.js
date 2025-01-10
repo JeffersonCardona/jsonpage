@@ -146,3 +146,9 @@ function fnc_execute_function(fnc){
     eval(fnc);
   }
 }
+
+function fnc_arrow_back(fnc_back){
+  page_back['function'] = fnc_back;
+
+  
+}

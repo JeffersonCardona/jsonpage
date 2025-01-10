@@ -7,7 +7,7 @@ var libraries_load = [];
 var components = {};
 var connections = {};
 var layout = {};
-const service_balance = '/jsonpage/balance.jsp';
+const service_balance = 'http://localhost:8080/jsonpage/balance.jsp';
 var msj_crypto = '';
 var parameters_start = [];
 var dictionary = {};
@@ -16,6 +16,7 @@ var libraries_loaded = {};
 var database = {};
 var components_load = {};
 var load_page = false;
+var page_back = {};
 const type_not_package = ["layout", "lists", "cards", "default"];
 const types_components = {
         "button" : {

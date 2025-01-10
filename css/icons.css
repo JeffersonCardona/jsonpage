@@ -157,6 +157,10 @@
     background-image: url(../images/manage_accounts_44dp_white.svg);
 }
 
+.icon_arrow_back {
+    background-image: url(../images/arrow_back_43dp_white.svg);
+}
+
 .btn-blue-dark {
     --bs-btn-color: #39475e;
     --bs-btn-bg: #7AB2D3;
