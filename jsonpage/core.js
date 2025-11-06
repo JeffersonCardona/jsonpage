@@ -4,11 +4,17 @@
 
 function load_start_jsonpage(page, dom){
     var parameters = fnc_get_parameters(window.location.href, 'parameters');
-
+    
     // Load components
     components = page.components;
-    fnc_load_components_head('fnc_create_components()');
 
+    if(page.preload == false){
+      fnc_load_components_head('fnc_create_components()');  
+      
+    }else{
+      load_page = true;
+    }
+    
     // Load render
     fnc_create_layout(page.layouts, dom);
 
@@ -40,10 +46,6 @@ function fnc_load_components_head(fnc){
       fnc_load_library(types_components[components[i].type].package, fnc);
     }
   }
-}
-
-function fnc_load_components_page(p){
-  
 }
 
 function fnc_validate_load_library(type, library, fnc_eval){

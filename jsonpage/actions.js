@@ -19,10 +19,12 @@ function fnc_create_components(){
     
     if (load_page) {
         for(i in components){
-            var component = components[i];
+            let component = components[i];
     
             if(types_components[component.type] != undefined){
-                if(component['data'] != undefined && component['data'] != component['data'].length > 0){
+                if(component['data'] != undefined && 
+                    component['data'].length > 0 && 
+                    connections[component['data']] != undefined){
                     connections[component['data']].components.push(i);
                 }
     

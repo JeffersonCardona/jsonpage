@@ -133,3 +133,13 @@ function fnc_load_parameters_connections(connection, parameters){
         fnc_load_component(connections[connection]['components'][i]);
     }
 }
+
+function fnc_get_data_component(item){
+    let data = [];
+
+    if( item !== undefined && connections[item] !== undefined) {
+        data = connections[item].data;
+    }
+
+    return data;
+}

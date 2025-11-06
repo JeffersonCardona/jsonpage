@@ -2,7 +2,6 @@ fnc_load_package_component('lists');
 
 function fnc_component_lists(item){
     let component = components[item];
-    let data = component.data == undefined ?  [] : connections[component.data].data;
     const namespace = component.layout +'_list';
     const library = component.library == undefined ? 'default' : component.library;
     let carryOn = fnc_carryOn_data('fnc_component_button', item, component.data);
@@ -27,7 +26,7 @@ function fnc_component_lists(item){
 
 function fnc_lists_default(namespace, item, connection, carryOn){
     let component = components[item];
-    let data = connections[connection].data;
+    let data = fnc_get_data_component(connection);
     let template = component.options.template == undefined ? 'label' : component.options.template;
     let numbered = component.options.numbered == true ? 'list-group-numbered' : '';
     $('#'+namespace).append('<ul id="'+namespace+'_ol" class="list-group '+numbered+'"></ul>');
@@ -41,7 +40,7 @@ function fnc_lists_default(namespace, item, connection, carryOn){
 
 function fnc_lists_cards(namespace, item, connection, carryOn){
     let component = components[item];
-    let data = connections[connection].data;
+    let data = fnc_get_data_component(connection);
     let template = component.options.template == undefined ? 'label' : component.options.template;
 
     for(let i in data){

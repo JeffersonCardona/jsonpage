@@ -22,3 +22,7 @@ Json Page permite configurar una pagina dinamica y con comunicacion iteractiva e
 # Estructura JSON
 El proceso consiste en configurar un JSON, el cual contiene tres principales segmentos:
 * Paso
+
+## json page
+Pagina que contiene los archivos principales del proyecto, entre los cuales estan :
+* 

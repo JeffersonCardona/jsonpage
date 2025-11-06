@@ -32,7 +32,7 @@ function fnc_component_chart(item){
 
 function fnc_chart_apexcharts(namespace, item){
     let component = components[item];
-    let obj_jsgrid = $.extend(connections[component.configuration],{"data": connections[component.data].data});
+    let obj_jsgrid = $.extend(connections[component.configuration],{"data": fnc_get_data_component(component.data)});
     let options = eval(configuration.configuration);
     let categories =  fnc_get_info_categories(data, options.column_category);
     let series_data =  fnc_get_info_datas(data, options.columns_series);
@@ -55,7 +55,7 @@ function fnc_chart_apexcharts(namespace, item){
 
 function fnc_chart_charts(namespace, item){
     let component = components[item];
-    let configuration = $.extend(connections[component.configuration],{"data": connections[component.data].data});
+    let configuration = $.extend(connections[component.configuration],{"data": fnc_get_data_component(component.data)});
     let cnx = $('#'+namespace);
     new Chart(cnx, configuration);
 }
@@ -63,8 +63,8 @@ function fnc_chart_charts(namespace, item){
 function fnc_chart_echarts(namespace, item){
     let component = components[item];
     let height = component.options.height == undefined ? "300px" : component.options.height;
-    let options = $.extend({},connections[component.configuration].data);
-    let data = connections[component.data].data;
+    let options = $.extend({},fnc_get_data_component(component.configuration));
+    let data = fnc_get_data_component(component.data);
 
     //load axis data
     if(options['xAxis'] != undefined || options['radiusAxis'] != undefined){

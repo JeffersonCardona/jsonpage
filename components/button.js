@@ -8,7 +8,6 @@ fnc_load_package_component('button');
 */
 function fnc_component_button(item){
     let component = components[item];
-    let data = component.data == undefined ?  [] : connections[component.data].data;
     const namespace = component.layout +'_button';
     const title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
     const library = component.library == undefined || component.library.length == 0 ? 'buttons' : component.library;

@@ -8,7 +8,7 @@ fnc_load_package_component('selector');
 */
 function fnc_component_selector(item){
     let component = components[item];
-    let data = connections[component.data].data;
+    let data = fnc_get_data_component(component.data);
     const namespace = component.layout +'_select';
     const title = dictionary[component.title] == undefined ? component.title : dictionary[component.title];
     const library = component.library == undefined || component.library.length == 0 ? 'sumoselect' : component.library;
@@ -34,7 +34,7 @@ function fnc_component_selector(item){
 }
 
 function fnc_select_chosen(namespace, component, connection){
-    let data = connections[connection].data;
+    let data = fnc_get_data_component(connection);
     const options = components[component].options != undefined ? components[component].options : {};
 
     for(i in data){
@@ -48,7 +48,7 @@ function fnc_select_chosen(namespace, component, connection){
 }
 
 function fnc_select_sumoselect(namespace, component, connection){
-    let data = connections[connection].data;
+    let data = fnc_get_data_component(connection);
     const options = components[component].options != undefined ? components[component].options : {};
     
     for(i in data){
